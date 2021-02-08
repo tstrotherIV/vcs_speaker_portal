@@ -1,0 +1,8 @@
+.textAreaWidth{
+  width: 100%;
+}
+
+.travel-details {
+  display: flex;
+  flex-direction: row;
+}

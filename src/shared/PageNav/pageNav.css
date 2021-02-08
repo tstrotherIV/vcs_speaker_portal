@@ -1,0 +1,9 @@
+.navButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.drawLine {
+  border-left: 1px solid black;
+}

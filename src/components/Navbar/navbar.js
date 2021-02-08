@@ -28,13 +28,15 @@ const TopNav = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/user_page/">Profile</NavLink>
+              <NavLink href="/user_page/">Profile Info</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="http://vetcancersociety.org/" target="_blank">
-                VCS Website
-              </NavLink>
+              <NavLink href="/user_conference_info">Presentation Info</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/user_travel_info">Travel Requirements</NavLink>
+            </NavItem>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Need Help?
@@ -48,6 +50,11 @@ const TopNav = (props) => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="http://vetcancersociety.org/" target="_blank">
+                VCS Website
+              </NavLink>
+            </NavItem>
           </Nav>
           <img src={VCSlogo} height="70px"></img>
         </Collapse>
