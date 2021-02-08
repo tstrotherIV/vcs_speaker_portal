@@ -28,10 +28,13 @@ const TopNav = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/user_page/">Profile Info</NavLink>
+              <NavLink href="/info_page">General Information</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/user_conference_info">Presentation Info</NavLink>
+              <NavLink href="/user_page/">Speaker Details</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/user_conference_info">Presentation Details</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/user_travel_info">Travel Requirements</NavLink>

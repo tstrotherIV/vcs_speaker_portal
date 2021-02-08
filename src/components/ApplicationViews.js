@@ -5,6 +5,7 @@ import Home from "./Home/home";
 import UserPage from "./UserPage/user_page";
 import UserConferenceInfo from "./ConferenceInfo/conference_info";
 import UserTravelInfo from "./TravelInfo/travel_info";
+import InfoPage from "./InfoPage/info_page";
 
 const ApplicationViews = (props) => {
   return (
@@ -14,6 +15,13 @@ const ApplicationViews = (props) => {
         path="/"
         render={(props) => {
           return <Home {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/info_page"
+        render={(props) => {
+          return <InfoPage {...props} />;
         }}
       />
       <Route

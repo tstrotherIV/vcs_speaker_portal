@@ -16,7 +16,19 @@ function UserConferenceInfo() {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
+                      <h6 className="mb-0">Signed W9</h6>
+                      <p>Only if your honorarium is $600 or more</p>
+                      <p>(*Required by Keynote Speakers)</p>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      <Button>Upload</Button>
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
                       <h6 className="mb-0">Signed Contract</h6>
+                      <p>(*Required by Keynote Speakers)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <Button>Upload</Button>
@@ -26,6 +38,7 @@ function UserConferenceInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Professional Photo</h6>
+                      <p>(*Required by Keynote Speakers)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <Button>Upload</Button>
@@ -35,6 +48,17 @@ function UserConferenceInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Speaker Notes</h6>
+                      <p>(*Required by Keynote Speakers)</p>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      <Button>Upload</Button>
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Full CV</h6>
+                      <p>(*Required by Keynote Speakers)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <Button>Upload</Button>
@@ -44,20 +68,7 @@ function UserConferenceInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Brief Introduction</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <hr></hr>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Speaker Bio</h6>
+                      <p>100 Words Max</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <TextareaAutosize
@@ -72,6 +83,7 @@ function UserConferenceInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Presentation Synopsis</h6>
+                      <p>250-300 words max</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <TextareaAutosize
