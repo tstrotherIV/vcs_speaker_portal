@@ -19,7 +19,7 @@ const ApplicationViews = (props) => {
       />
       <Route
         exact
-        path="/info_page"
+        path="/deadlines_and_Requirements"
         render={(props) => {
           return <InfoPage {...props} />;
         }}
