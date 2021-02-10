@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import SignUp from "./CreateUser/create_user";
 import Home from "./Home/home";
-import UserPage from "./UserPage/user_page";
+import SpeakerDetails from "./UserPage/user_page";
 import UserConferenceInfo from "./ConferenceInfo/conference_info";
 import UserTravelInfo from "./TravelInfo/travel_info";
 import InfoPage from "./InfoPage/info_page";
@@ -33,9 +33,9 @@ const ApplicationViews = (props) => {
       />
       <Route
         exact
-        path="/user_page"
+        path="/speaker_details"
         render={(props) => {
-          return <UserPage {...props} />;
+          return <SpeakerDetails {...props} />;
         }}
       />
       <Route
