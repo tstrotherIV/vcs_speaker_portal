@@ -28,7 +28,7 @@ const TopNav = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/info_page">General Information</NavLink>
+              <NavLink href="/deadlines_and_Requirements">Deadlines & Requirements</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/user_page/">Speaker Details</NavLink>
@@ -37,22 +37,14 @@ const TopNav = (props) => {
               <NavLink href="/user_conference_info">Presentation Details</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/user_travel_info">Travel Requirements</NavLink>
+              <NavLink href="">CE Information</NavLink>
             </NavItem>
-
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Need Help?
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  <p>Sandi Strother</p>
-                  <p>Email: vetcancersociety@yahoo.com</p>
-                  <p>Phone: 573.823.8497</p>
-                  <p>Address P.O. Box 30855 Columbia, MO 65205</p>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/user_travel_info">Lodging</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="">Contact Us</NavLink>
+            </NavItem>
             <NavItem>
               <NavLink href="http://vetcancersociety.org/" target="_blank">
                 VCS Website
