@@ -14,7 +14,7 @@ function DeadlinesAndRequirements() {
           deadlines posted below.{" "}
         </p>
         <p>
-          Feel free to contact us (link to vetcancersociety@yahoo.com here) with
+          Feel free to contact us <a href="mailto:vetcancersociety@yahoo.com">vetcancersociety@yahoo.com</a> with
           any questions that you may have and report any technical issues you
           encounter along the way to tom@liveitnowent.com.
         </p>
