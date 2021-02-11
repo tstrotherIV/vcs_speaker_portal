@@ -106,19 +106,20 @@ function UserConferenceInfo() {
                       <ButtonGroup>
                         <Button
                           color="primary"
-                          onClick={() => setRSelected(1)}
-                          active={rSelected === 1}
+                          onClick={() => setRSelected("Yes")}
+                          active={rSelected === "Yes"}
                         >
                           Yes
                         </Button>
                         <Button
                           color="primary"
-                          onClick={() => setRSelected(2)}
-                          active={rSelected === 2}
+                          onClick={() => setRSelected("No")}
+                          active={rSelected === "No"}
                         >
                           No
                         </Button>
                       </ButtonGroup>
+                      <p>Selected: {rSelected}</p>
                     </div>
                   </div>
                 </div>
