@@ -34,10 +34,10 @@ const TopNav = (props) => {
               <NavLink href="/speaker_details">Speaker Details</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/user_conference_info">Presentation Details</NavLink>
+              <NavLink href="/presentation_details">Presentation Details</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="">CE Information</NavLink>
+              <NavLink href="/continuing_education">CE Information</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/user_travel_info">Lodging</NavLink>

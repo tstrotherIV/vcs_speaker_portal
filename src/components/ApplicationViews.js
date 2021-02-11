@@ -6,6 +6,7 @@ import SpeakerDetails from "./UserPage/user_page";
 import UserConferenceInfo from "./ConferenceInfo/conference_info";
 import UserTravelInfo from "./TravelInfo/travel_info";
 import InfoPage from "./InfoPage/info_page";
+import ContinuingEducation from "./ContinuingEducation/continuing_ed"
 
 const ApplicationViews = (props) => {
   return (
@@ -40,9 +41,16 @@ const ApplicationViews = (props) => {
       />
       <Route
         exact
-        path="/user_conference_info"
+        path="/presentation_details"
         render={(props) => {
           return <UserConferenceInfo {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/continuing_education"
+        render={(props) => {
+          return <ContinuingEducation {...props} />;
         }}
       />
       <Route

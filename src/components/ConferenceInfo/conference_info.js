@@ -1,74 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import "./conference_info.css";
-import { Container, Button } from "reactstrap";
+import { Container, Button, ButtonGroup } from "reactstrap";
 import TextareaAutosize from "react-textarea-autosize";
 import SaveButton from "../../shared/SaveButton/save_button";
 
 function UserConferenceInfo() {
+  const [rSelected, setRSelected] = useState(null);
+
   return (
     <>
       <Container>
         <div className="main-body">
           <div className="row gutters-sm">
             <div className="col-md-12">
-              <h3>Presentation and Speaker Information</h3>
+              <h3>Presentation Details Page</h3>
+              <h6>
+                The following information is required of ALL presenters unless
+                noted otherwise.
+              </h6>
               <div className="card mb-3">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Signed W9</h6>
-                      <p>Only if your honorarium is $600 or more</p>
-                      <p>(*Required by Keynote Speakers)</p>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <Button>Upload</Button>
-                    </div>
-                  </div>
-                  <hr></hr>
-                  <div className="row">
-                    <div className="col-sm-3">
                       <h6 className="mb-0">Signed Contract</h6>
-                      <p>(*Required by Keynote Speakers)</p>
+                      <p>*Required by Keynote Speakers</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button>Upload</Button>
+                      <Button color="primary">Upload</Button>
                     </div>
                   </div>
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Professional Photo</h6>
-                      <p>(*Required by Keynote Speakers)</p>
+                      <p>*High resolution (300+ dpi)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button>Upload</Button>
-                    </div>
-                  </div>
-                  <hr></hr>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Speaker Notes</h6>
-                      <p>(*Required by Keynote Speakers)</p>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <Button>Upload</Button>
+                      <Button color="primary">Upload</Button>
                     </div>
                   </div>
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Full CV</h6>
-                      <p>(*Required by Keynote Speakers)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button>Upload</Button>
+                      <Button color="primary">Upload</Button>
                     </div>
                   </div>
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Brief Introduction</h6>
-                      <p>100 Words Max</p>
+                      <h6 className="mb-0">Speaker Notes</h6>
+                      <p>
+                        *Resident Review and Technician Workshop speakers only
+                      </p>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      <Button color="primary">Upload</Button>
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Speaker Introduction</h6>
+                      <p>*How you wish to be introduced; 50-100 words.</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <TextareaAutosize
@@ -95,102 +91,34 @@ function UserConferenceInfo() {
                     </div>
                   </div>
                   <hr></hr>
+                  <p className="mb-0">
+                    Conference registration is included for some presenters.
+                    Refer to your contract to determine if it is. Oral and
+                    poster presenters must be registered for the conference in
+                    order to present their abstract.
+                  </p>
+                  <br></br>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">
-                        Learning Objectives(List three Objectives)
-                      </h6>
+                      <p>Do you plan to register for the conference?</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <hr></hr>
-                  <h3>
-                    Multiple Choice Questions (type in six questions with
-                    answers)
-                  </h3>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Question 1</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Question 2</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Question 3</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Question 4</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Question 5</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Question 6</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        name=""
-                        minRows="4"
-                      />
+                      <ButtonGroup>
+                        <Button
+                          color="primary"
+                          onClick={() => setRSelected(1)}
+                          active={rSelected === 1}
+                        >
+                          Yes
+                        </Button>
+                        <Button
+                          color="primary"
+                          onClick={() => setRSelected(2)}
+                          active={rSelected === 2}
+                        >
+                          No
+                        </Button>
+                      </ButtonGroup>
                     </div>
                   </div>
                 </div>
