@@ -16,7 +16,7 @@ function DeadlinesAndRequirements() {
         <p>
           Feel free to contact us <a href="mailto:vetcancersociety@yahoo.com">vetcancersociety@yahoo.com</a> with
           any questions that you may have and report any technical issues you
-          encounter along the way to tom@liveitnowent.com.
+          encounter along the way to <a href="mailto:tom@liveitnowent.com">tom@liveitnowent.com</a>.
         </p>
       </Container>
 
@@ -33,10 +33,10 @@ function DeadlinesAndRequirements() {
             sections.
           </li>
           <li>
-            Technician Workshop Presenters: All sections except speaker lodging.
+            Technician Workshop Presenters: All sections except Lodging.
           </li>
           <li>
-            15 Minute Oral Abstract Presenters: All sections except speaker
+            15 Minute Oral Abstract Presenters: All sections speaker
             lodging.
           </li>
           <li>
@@ -47,7 +47,7 @@ function DeadlinesAndRequirements() {
       </Container>
 
       <Container>
-        <h3>Due Dates</h3>
+        <h3 className="pt-4">Due Dates</h3>
         <Table>
           <thead>
             <tr>
