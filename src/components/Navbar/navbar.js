@@ -42,9 +42,20 @@ const TopNav = (props) => {
             <NavItem>
               <NavLink href="/user_travel_info">Lodging</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="">Contact Us</NavLink>
-            </NavItem>
+            
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Contact Us
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <p>Sandi Strother</p>
+                  <p>Email: vetcancersociety@yahoo.com</p>
+                  <p>Phone: 573.823.8497</p>
+                  <p>Address P.O. Box 30855 Columbia, MO 65205</p>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             <NavItem>
               <NavLink href="http://vetcancersociety.org/" target="_blank">
                 VCS Website
