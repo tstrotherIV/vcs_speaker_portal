@@ -33,10 +33,6 @@ function UserTravelInfo() {
                         <Label>Select Date</Label>
                         <Input className="textAreaWidth" type="date" />
                       </div>
-                      <div className="p-3">
-                        <Label>Select Time</Label>
-                        <Input className="textAreaWidth" type="time" />
-                      </div>
                     </div>
                     <hr></hr>
                     <div className="col-sm-3">
@@ -46,10 +42,6 @@ function UserTravelInfo() {
                       <div className="p-3">
                         <Label>Select Date</Label>
                         <Input className="textAreaWidth" type="date" />
-                      </div>
-                      <div className="p-3">
-                        <Label>Select Time</Label>
-                        <Input className="textAreaWidth" type="time" />
                       </div>
                     </div>
                   </div>

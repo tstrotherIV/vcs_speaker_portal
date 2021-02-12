@@ -23,7 +23,7 @@ function UserConferenceInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Signed Contract</h6>
-                      <p>*Required by Keynote Speakers</p>
+                      <p>*Not required of oral or poster abstract presenters</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <Button color="primary">Upload</Button>
@@ -79,7 +79,7 @@ function UserConferenceInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Presentation Synopsis</h6>
-                      <p>250-300 words max</p>
+                      <p>250-300 words.  NOT required of oral or poster abstract presenters.</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <TextareaAutosize

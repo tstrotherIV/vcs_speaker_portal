@@ -29,7 +29,6 @@ function SpeakerDetails() {
               </div>
               <div className="card mt-3">
                 <ul className="list-group list-group-flush">
-                  
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Company</h6>
                     <span className="text-secondary">Best Place Ever</span>
@@ -126,7 +125,7 @@ function SpeakerDetails() {
 
                   {/* Mailing Address */}
                   <div>
-                    <h4 className="pb-2">PreferredMailing Address</h4>
+                    <h4 className="pb-2">Preferred Mailing Address</h4>
                     <div className="row">
                       <div className="col-sm-3 mt-2 mb-2">
                         <h6 className="mb-0">Street Address</h6>
@@ -203,6 +202,16 @@ function SpeakerDetails() {
                       </div>
                       <div className="col-sm-9 text-secondary">
                         <Input></Input>
+                      </div>
+                    </div>
+                    <hr></hr>
+                    <div className="row">
+                      <div className="col-sm-6">
+                        <h6 className="mb-0">Signed W9</h6>
+                        <p>*for keynote speakers or other presenters whose honorariums will be $600 or more.</p>
+                      </div>
+                      <div className="col-sm-3 text-secondary">
+                        <Button color="primary">Upload</Button>
                       </div>
                     </div>
                   </div>

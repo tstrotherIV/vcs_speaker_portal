@@ -21,9 +21,7 @@ function ContinuingEducation() {
               <div className="card mb-3">
                 <div className="card-body">
                   <div>
-                    <h5>Example of question and answer formatting:</h5>
-
-                    <h6>Example 1</h6>
+                    <h5>Example of how to format your question and answers:</h5>
                     <div>
                       <p>What is the first letter of the alphabet?</p>
                       <ol>
@@ -36,17 +34,14 @@ function ContinuingEducation() {
                     <p>The correct answer is #4</p>
                   </div>
                   <hr></hr>
-                  <h6>Example 2</h6>
                   <div>
                     <h5>Learning Objectives</h5>
-                    <p>State two or three learning objectives</p>
+                    <p>Enter two or three learning objectives</p>
                   </div>
                   <hr></hr>
-                  <h6>Example 3</h6>
                   <div>
                     <h5>Multiple Choice or True/False Questions</h5>
                   </div>
-                  <hr></hr>
 
                   <div className="row">
                     <div className="col-sm-3">
