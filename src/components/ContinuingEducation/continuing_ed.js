@@ -20,7 +20,7 @@ function ContinuingEducation() {
               </h6>
               <div className="card mb-3">
                 <div className="card-body">
-                  <div>
+                  <div className="example-question-box">
                     <h5>Example of how to format your question and answers:</h5>
                     <div>
                       <p>What is the first letter of the alphabet?</p>
@@ -37,6 +37,45 @@ function ContinuingEducation() {
                   <div>
                     <h5>Learning Objectives</h5>
                     <p>Enter two or three learning objectives</p>
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <h6 className="mb-0"></h6>
+                      </div>
+                      <div className="col-sm-9 text-secondary">
+                        <TextareaAutosize
+                          className="textAreaWidth"
+                          type="text"
+                          name=""
+                          minRows="4"
+                        />
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <h6 className="mb-0"></h6>
+                      </div>
+                      <div className="col-sm-9 text-secondary">
+                        <TextareaAutosize
+                          className="textAreaWidth"
+                          type="text"
+                          name=""
+                          minRows="4"
+                        />
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <h6 className="mb-0"></h6>
+                      </div>
+                      <div className="col-sm-9 text-secondary">
+                        <TextareaAutosize
+                          className="textAreaWidth"
+                          type="text"
+                          name=""
+                          minRows="4"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <hr></hr>
                   <div>
@@ -110,7 +149,9 @@ function ContinuingEducation() {
                   </div>
                 </div>
               </div>
-              <SaveButton />
+              <div className="saveBtn">
+                <SaveButton />
+              </div>
             </div>
           </div>
         </div>

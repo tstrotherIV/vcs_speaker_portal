@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./user_page.css";
 import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 
 function SpeakerDetails() {
+  const [saveBtnVisible, setSaveBtnVisible] = useState(false);
+  const [user, setUser] = useState({
+    name: "",
+  });
+
+  const handleFieldChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.id]: e.target.value,
+    });
+    setSaveBtnVisible(true)
+  };
+
   return (
     <>
       <Container>
@@ -64,7 +77,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">First Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="name"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -208,7 +225,10 @@ function SpeakerDetails() {
                     <div className="row">
                       <div className="col-sm-6">
                         <h6 className="mb-0">Signed W9</h6>
-                        <p>*for keynote speakers or other presenters whose honorariums will be $600 or more.</p>
+                        <p>
+                          *for keynote speakers or other presenters whose
+                          honorariums will be $600 or more.
+                        </p>
                       </div>
                       <div className="col-sm-3 text-secondary">
                         <Button color="primary">Upload</Button>
@@ -217,7 +237,7 @@ function SpeakerDetails() {
                   </div>
                 </div>
               </div>
-              <SaveButton />
+              <SaveButton saveBtnVisible={saveBtnVisible} setSaveBtnVisible={setSaveBtnVisible}/>
             </div>
           </div>
         </div>

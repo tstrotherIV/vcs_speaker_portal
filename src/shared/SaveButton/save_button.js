@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Button } from "reactstrap";
-import "./save_button.css"
+import "./save_button.css";
 
-function SaveButton() {
+function SaveButton(props) {
+  const [editIndicator, setEditIndicator] = useState(false);
+
+
+  useEffect(() => {
+    if (props.saveBtnVisible) {
+      setEditIndicator(true)
+      props.setSaveBtnVisible(false)
+    }
+  }, [props.saveBtnVisible]);
+
   return (
     <>
       <Container>
-        <Button className="saveBtn">Save Detail</Button>
+        {!editIndicator ? (
+          ""
+        ) : (
+          <Button
+            color="danger"
+            className="saveBtn"
+            onClick={() => setEditIndicator(false)}
+          >
+            Save Changes
+          </Button>
+        )}
       </Container>
     </>
   );

@@ -1,3 +1,15 @@
-.textAreaWidth{
+.textAreaWidth {
+  width: 100%;
+}
+
+.example-question-box {
+  background-color: rgb(225, 225, 225);
+  padding: 15px;
+}
+
+.saveBtn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
 }
