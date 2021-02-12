@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./conference_info.css";
+import "./presentation_info.css";
 import { Container, Button, ButtonGroup } from "reactstrap";
 import TextareaAutosize from "react-textarea-autosize";
 import SaveButton from "../../shared/SaveButton/save_button";
 
-function UserConferenceInfo() {
+function PresentationInfo() {
   const [rSelected, setRSelected] = useState(null);
 
   return (
@@ -70,7 +70,7 @@ function UserConferenceInfo() {
                       <TextareaAutosize
                         className="textAreaWidth"
                         type="text"
-                        name=""
+                        id="speaker_intro"
                         minRows="4"
                       />
                     </div>
@@ -85,7 +85,7 @@ function UserConferenceInfo() {
                       <TextareaAutosize
                         className="textAreaWidth"
                         type="text"
-                        name=""
+                        id="presentation_synopsis"
                         minRows="4"
                       />
                     </div>
@@ -133,4 +133,4 @@ function UserConferenceInfo() {
   );
 }
 
-export default UserConferenceInfo;
+export default PresentationInfo;

@@ -13,3 +13,8 @@
   left: 0;
   width: 100%;
 }
+
+.quillBox {
+  height: 200px;
+  padding: 20px;
+}

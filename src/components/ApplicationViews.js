@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import SignUp from "./CreateUser/create_user";
 import Home from "./Home/home";
 import SpeakerDetails from "./UserPage/user_page";
-import UserConferenceInfo from "./ConferenceInfo/conference_info";
+import PresentationInfo from "./PresentationInfo/presentation_info";
 import UserTravelInfo from "./TravelInfo/travel_info";
 import InfoPage from "./InfoPage/info_page";
 import ContinuingEducation from "./ContinuingEducation/continuing_ed"
@@ -43,7 +43,7 @@ const ApplicationViews = (props) => {
         exact
         path="/presentation_details"
         render={(props) => {
-          return <UserConferenceInfo {...props} />;
+          return <PresentationInfo {...props} />;
         }}
       />
       <Route

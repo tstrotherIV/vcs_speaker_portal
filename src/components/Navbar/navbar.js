@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   Collapse,
+  Container,
   Navbar,
   NavbarToggler,
   NavbarBrand,
@@ -11,7 +12,6 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
 } from "reactstrap";
 import VCSlogo from "../../media/VCSlogo.png";
 
@@ -28,13 +28,17 @@ const TopNav = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/deadlines_and_Requirements">Deadlines & Requirements</NavLink>
+              <NavLink href="/deadlines_and_Requirements">
+                Deadlines & Requirements
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/speaker_details">Speaker Details</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/presentation_details">Presentation Details</NavLink>
+              <NavLink href="/presentation_details">
+                Presentation Details
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/continuing_education">CE Information</NavLink>
@@ -42,7 +46,7 @@ const TopNav = (props) => {
             <NavItem>
               <NavLink href="/user_travel_info">Lodging</NavLink>
             </NavItem>
-            
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Contact Us

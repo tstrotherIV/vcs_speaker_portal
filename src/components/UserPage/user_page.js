@@ -14,7 +14,7 @@ function SpeakerDetails() {
       ...user,
       [e.target.id]: e.target.value,
     });
-    setSaveBtnVisible(true)
+    setSaveBtnVisible(true);
   };
 
   return (
@@ -80,7 +80,7 @@ function SpeakerDetails() {
                       <Input
                         type="text"
                         onChange={handleFieldChange}
-                        id="name"
+                        id="fist_name"
                       ></Input>
                     </div>
                   </div>
@@ -90,7 +90,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">Last Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="last_name"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -99,7 +103,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">Title</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="title"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -108,7 +116,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">Professional Designation</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="professional_designation"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -117,7 +129,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">Business/ Orginization Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="business_name"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -126,7 +142,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">Cell Phone</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="cell_phone_number"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -135,7 +155,11 @@ function SpeakerDetails() {
                       <h6 className="mb-0">Work/Alternate Phone</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Input></Input>
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="work_number"
+                      ></Input>
                     </div>
                   </div>
                   <hr></hr>
@@ -148,31 +172,51 @@ function SpeakerDetails() {
                         <h6 className="mb-0">Street Address</h6>
                       </div>
                       <div className="col-sm-9 text-secondary col-sm-3 mt-2 mb-2">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="street_address"
+                        ></Input>
                       </div>
                       <div className="col-sm-3 mt-2 mb-2">
                         <h6 className="mb-0">Street / Apartment / Suite</h6>
                       </div>
                       <div className="col-sm-9 text-secondary col-sm-3 mt-2 mb-2">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="housing_number"
+                        ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
                         <h6 className="mb-0">City</h6>
                       </div>
                       <div className="col-sm-9 text-secondary mt-2 mb-2">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="city"
+                        ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
                         <h6 className="mb-0">State</h6>
                       </div>
                       <div className="col-sm-9 text-secondary mt-2 mb-2">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="state"
+                        ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
                         <h6 className="mb-0">Zip Code</h6>
                       </div>
                       <div className="col-sm-9 text-secondary mt-2 mb-2">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="zip_code"
+                        ></Input>
                       </div>
                     </div>
                   </div>
@@ -186,7 +230,11 @@ function SpeakerDetails() {
                         <h6 className="mb-0">Preferred Email Address</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="preferred_email"
+                        ></Input>
                       </div>
                     </div>
                     <hr></hr>
@@ -195,7 +243,11 @@ function SpeakerDetails() {
                         <h6 className="mb-0">Alternate Email Address</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="alternate_email"
+                        ></Input>
                       </div>
                     </div>
                   </div>
@@ -209,7 +261,11 @@ function SpeakerDetails() {
                         <h6 className="mb-0">Emergency Contact Name</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="emergency_contact_name"
+                        ></Input>
                       </div>
                     </div>
                     <hr></hr>
@@ -218,7 +274,11 @@ function SpeakerDetails() {
                         <h6 className="mb-0">Emergency Contact Phont Number</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <Input></Input>
+                        <Input
+                          type="text"
+                          onChange={handleFieldChange}
+                          id="emergency_contact_number"
+                        ></Input>
                       </div>
                     </div>
                     <hr></hr>
@@ -231,13 +291,17 @@ function SpeakerDetails() {
                         </p>
                       </div>
                       <div className="col-sm-3 text-secondary">
-                        <Button color="primary">Upload</Button>
+                        <Button color="primary"
+                        >Upload</Button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <SaveButton saveBtnVisible={saveBtnVisible} setSaveBtnVisible={setSaveBtnVisible}/>
+              <SaveButton
+                saveBtnVisible={saveBtnVisible}
+                setSaveBtnVisible={setSaveBtnVisible}
+              />
             </div>
           </div>
         </div>
