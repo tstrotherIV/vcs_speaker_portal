@@ -39,6 +39,15 @@ function PresentationInfo() {
     setSaveBtnVisible(true);
   };
 
+  const updateAttendingYes = () => {
+    setRSelected("Yes");
+    setSaveBtnVisible(true);
+  };
+  const updateAttendingNo = () => {
+    setRSelected("No");
+    setSaveBtnVisible(true);
+  };
+
   return (
     <>
       <Container>
@@ -141,14 +150,14 @@ function PresentationInfo() {
                       <ButtonGroup>
                         <Button
                           color="primary"
-                          onClick={() => setRSelected("Yes")}
+                          onClick={updateAttendingYes}
                           active={rSelected === "Yes"}
                         >
                           Yes
                         </Button>
                         <Button
                           color="primary"
-                          onClick={() => setRSelected("No")}
+                          onClick={updateAttendingNo}
                           active={rSelected === "No"}
                         >
                           No
