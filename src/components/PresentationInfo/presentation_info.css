@@ -7,3 +7,18 @@
   flex-direction: row;
 }
 
+.saveBtn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.quillContainer{
+  min-height: 200px;
+}
+
+.ql-editor {
+  min-height: 200px;
+}
+

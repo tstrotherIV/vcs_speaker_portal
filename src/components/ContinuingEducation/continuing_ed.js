@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./continuing_ed.css";
 import { Container, Row, Col } from "reactstrap";
-import TextareaAutosize from "react-textarea-autosize";
 import SaveButton from "../../shared/SaveButton/save_button";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 function ContinuingEducation() {
+  // Learning Objectives State
   const [learning_objectives_1, setlearning_objectives_1] = useState({
     learning_objectives_1: "",
   });
@@ -17,26 +17,73 @@ function ContinuingEducation() {
     learning_objectives_3: "",
   });
 
+  // True/False State
+  const [true_false_1, settrue_false_1] = useState({
+    true_false_1: "",
+  });
+  const [true_false_2, settrue_false_2] = useState({
+    true_false_2: "",
+  });
+  const [true_false_3, settrue_false_3] = useState({
+    true_false_3: "",
+  });
+  const [true_false_4, settrue_false_4] = useState({
+    true_false_4: "",
+  });
+  const [true_false_5, settrue_false_5] = useState({
+    true_false_5: "",
+  });
+
+  // Learning Objectives Handle Change
   const handleChange_learning_objectives_1 = (e) => {
     setlearning_objectives_1({
       ...learning_objectives_1,
       learning_objectives_1: e,
     });
-    console.log("quill 1", e);
   };
 
   const handleChange_learning_objectives_2 = (e) => {
     setlearning_objectives_2({
       learning_objectives_2: e,
     });
-    console.log("quill 2", e);
   };
 
   const handleChange_learning_objectives_3 = (e) => {
     setlearning_objectives_3({
       learning_objectives_3: e,
     });
-    console.log("quill 3", e);
+  };
+
+  // True/False Handle Change
+  const handleChange_true_false_1 = (e) => {
+    settrue_false_1({
+      ...true_false_1,
+      true_false_1: e,
+    });
+  };
+  const handleChange_true_false_2 = (e) => {
+    settrue_false_2({
+      ...true_false_2,
+      true_false_2: e,
+    });
+  };
+  const handleChange_true_false_3 = (e) => {
+    settrue_false_3({
+      ...true_false_3,
+      true_false_3: e,
+    });
+  };
+  const handleChange_true_false_4 = (e) => {
+    settrue_false_4({
+      ...true_false_4,
+      true_false_4: e,
+    });
+  };
+  const handleChange_true_false_5 = (e) => {
+    settrue_false_5({
+      ...true_false_5,
+      true_false_5: e,
+    });
   };
 
   return (
@@ -116,12 +163,13 @@ function ContinuingEducation() {
                         <h6 className="mb-0">Question 1</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <TextareaAutosize
-                          className="textAreaWidth"
-                          type="text"
-                          name=""
-                          minRows="4"
+                        <ReactQuill
+                          className="quillBox"
+                          name="true_false_1"
+                          value={true_false_1.true_false_1}
+                          onChange={handleChange_true_false_1}
                         />
+                        <br></br>
                       </div>
                     </div>
                     <div className="row">
@@ -129,12 +177,13 @@ function ContinuingEducation() {
                         <h6 className="mb-0">Question 2</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <TextareaAutosize
-                          className="textAreaWidth"
-                          type="text"
-                          name=""
-                          minRows="4"
+                        <ReactQuill
+                          className="quillBox"
+                          name="true_false_2"
+                          value={true_false_2.true_false_2}
+                          onChange={handleChange_true_false_2}
                         />
+                        <br></br>
                       </div>
                     </div>
                     <div className="row">
@@ -142,12 +191,13 @@ function ContinuingEducation() {
                         <h6 className="mb-0">Question 3</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <TextareaAutosize
-                          className="textAreaWidth"
-                          type="text"
-                          name=""
-                          minRows="4"
+                        <ReactQuill
+                          className="quillBox"
+                          name="true_false_3"
+                          value={true_false_3.true_false_3}
+                          onChange={handleChange_true_false_3}
                         />
+                        <br></br>
                       </div>
                     </div>
                     <div className="row">
@@ -155,12 +205,13 @@ function ContinuingEducation() {
                         <h6 className="mb-0">Question 4</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <TextareaAutosize
-                          className="textAreaWidth"
-                          type="text"
-                          name=""
-                          minRows="4"
+                        <ReactQuill
+                          className="quillBox"
+                          name="true_false_4"
+                          value={true_false_4.true_false_4}
+                          onChange={handleChange_true_false_4}
                         />
+                        <br></br>
                       </div>
                     </div>
                     <div className="row">
@@ -168,12 +219,13 @@ function ContinuingEducation() {
                         <h6 className="mb-0">Question 5</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <TextareaAutosize
-                          className="textAreaWidth"
-                          type="text"
-                          name=""
-                          minRows="4"
+                        <ReactQuill
+                          className="quillBox"
+                          name="true_false_5"
+                          value={true_false_5.true_false_5}
+                          onChange={handleChange_true_false_5}
                         />
+                        <br></br>
                       </div>
                     </div>
                   </Container>

@@ -3,9 +3,37 @@ import "./presentation_info.css";
 import { Container, Button, ButtonGroup } from "reactstrap";
 import TextareaAutosize from "react-textarea-autosize";
 import SaveButton from "../../shared/SaveButton/save_button";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function PresentationInfo() {
   const [rSelected, setRSelected] = useState(null);
+
+  //Speaker Intro State
+  const [speaker_intro, setSpeakerIntro] = useState({
+    speaker_intro: "",
+  });
+
+  //Presentation Synopsis State
+  const [presentation_synopsis, setPresentation_Synopsis] = useState({
+    presentation_synopsis: "",
+  });
+
+  // Speaker Intro Handle Change
+  const handleChange_speaker_intro = (e) => {
+    setSpeakerIntro({
+      ...speaker_intro,
+      speaker_intro: e,
+    });
+  };
+
+  // Speaker Intro Handle Change
+  const handleChange_presentation_synopsis = (e) => {
+    setPresentation_Synopsis({
+      ...presentation_synopsis,
+      presentation_synopsis: e,
+    });
+  };
 
   return (
     <>
@@ -66,12 +94,12 @@ function PresentationInfo() {
                       <h6 className="mb-0">Speaker Introduction</h6>
                       <p>*How you wish to be introduced; 50-100 words.</p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        id="speaker_intro"
-                        minRows="4"
+                    <div className="col-sm-9 text-secondary quillContainer">
+                      <ReactQuill
+                        className="quillBox2"
+                        name="speaker_intro"
+                        value={speaker_intro.speaker_intro}
+                        onChange={handleChange_speaker_intro}
                       />
                     </div>
                   </div>
@@ -79,14 +107,17 @@ function PresentationInfo() {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Presentation Synopsis</h6>
-                      <p>250-300 words.  NOT required of oral or poster abstract presenters.</p>
+                      <p>
+                        250-300 words. NOT required of oral or poster abstract
+                        presenters.
+                      </p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
-                      <TextareaAutosize
-                        className="textAreaWidth"
-                        type="text"
-                        id="presentation_synopsis"
-                        minRows="4"
+                    <div className="col-sm-9 text-secondary quillContainer">
+                      <ReactQuill
+                        className="quillBox2"
+                        name="presentation_synopsis"
+                        value={presentation_synopsis.presentation_synopsis}
+                        onChange={handleChange_presentation_synopsis}
                       />
                     </div>
                   </div>
