@@ -5,6 +5,28 @@ import SaveButton from "../../shared/SaveButton/save_button";
 
 function UserTravelInfo() {
   const [rSelected, setRSelected] = useState(null);
+  const [saveBtnVisible, setSaveBtnVisible] = useState(false);
+
+  const [user, setUser] = useState({
+    name: "",
+  });
+
+  const handleFieldChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.id]: e.target.value,
+    });
+    setSaveBtnVisible(true);
+  };
+
+  const updateRoomTypeKing = () => {
+    setRSelected("King");
+    setSaveBtnVisible(true);
+  };
+  const updateRoomTypeDouble = () => {
+    setRSelected("Double");
+    setSaveBtnVisible(true);
+  };
 
   return (
     <>
@@ -31,7 +53,12 @@ function UserTravelInfo() {
                     <div className="col-sm-9 text-secondary travel-details p-2">
                       <div className="p-3">
                         <Label>Select Date</Label>
-                        <Input className="textAreaWidth" type="date" />
+                        <Input
+                          className="textAreaWidth"
+                          type="date"
+                          onChange={handleFieldChange}
+                          id="arrival_date"
+                        />
                       </div>
                     </div>
                     <hr></hr>
@@ -41,7 +68,12 @@ function UserTravelInfo() {
                     <div className="col-sm-9 text-secondary travel-details p-2">
                       <div className="p-3">
                         <Label>Select Date</Label>
-                        <Input className="textAreaWidth" type="date" />
+                        <Input
+                          className="textAreaWidth"
+                          type="date"
+                          onChange={handleFieldChange}
+                          id="departure_date"
+                        />
                       </div>
                     </div>
                   </div>
@@ -53,14 +85,14 @@ function UserTravelInfo() {
                       <ButtonGroup>
                         <Button
                           color="primary"
-                          onClick={() => setRSelected("King")}
+                          onClick={updateRoomTypeKing}
                           active={rSelected === "king"}
                         >
                           King
                         </Button>
                         <Button
                           color="primary"
-                          onClick={() => setRSelected("Double")}
+                          onClick={updateRoomTypeDouble}
                           active={rSelected === "Double"}
                         >
                           Double
@@ -71,7 +103,10 @@ function UserTravelInfo() {
                   </div>
                 </div>
               </div>
-              <SaveButton />
+              <SaveButton
+                saveBtnVisible={saveBtnVisible}
+                setSaveBtnVisible={setSaveBtnVisible}
+              />
             </div>
           </div>
         </div>

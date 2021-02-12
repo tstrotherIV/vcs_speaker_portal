@@ -6,6 +6,8 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 function ContinuingEducation() {
+  const [saveBtnVisible, setSaveBtnVisible] = useState(false);
+
   // Learning Objectives State
   const [learning_objectives_1, setlearning_objectives_1] = useState({
     learning_objectives_1: "",
@@ -40,18 +42,21 @@ function ContinuingEducation() {
       ...learning_objectives_1,
       learning_objectives_1: e,
     });
+    setSaveBtnVisible(true);
   };
 
   const handleChange_learning_objectives_2 = (e) => {
     setlearning_objectives_2({
       learning_objectives_2: e,
     });
+    setSaveBtnVisible(true);
   };
 
   const handleChange_learning_objectives_3 = (e) => {
     setlearning_objectives_3({
       learning_objectives_3: e,
     });
+    setSaveBtnVisible(true);
   };
 
   // True/False Handle Change
@@ -60,30 +65,35 @@ function ContinuingEducation() {
       ...true_false_1,
       true_false_1: e,
     });
+    setSaveBtnVisible(true);
   };
   const handleChange_true_false_2 = (e) => {
     settrue_false_2({
       ...true_false_2,
       true_false_2: e,
     });
+    setSaveBtnVisible(true);
   };
   const handleChange_true_false_3 = (e) => {
     settrue_false_3({
       ...true_false_3,
       true_false_3: e,
     });
+    setSaveBtnVisible(true);
   };
   const handleChange_true_false_4 = (e) => {
     settrue_false_4({
       ...true_false_4,
       true_false_4: e,
     });
+    setSaveBtnVisible(true);
   };
   const handleChange_true_false_5 = (e) => {
     settrue_false_5({
       ...true_false_5,
       true_false_5: e,
     });
+    setSaveBtnVisible(true);
   };
 
   return (
@@ -232,7 +242,10 @@ function ContinuingEducation() {
                 </div>
               </div>
               <div className="saveBtn">
-                <SaveButton />
+                <SaveButton
+                  saveBtnVisible={saveBtnVisible}
+                  setSaveBtnVisible={setSaveBtnVisible}
+                />
               </div>
             </div>
           </div>

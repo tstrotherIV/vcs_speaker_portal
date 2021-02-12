@@ -9,6 +9,8 @@ import "react-quill/dist/quill.snow.css";
 function PresentationInfo() {
   const [rSelected, setRSelected] = useState(null);
 
+  const [saveBtnVisible, setSaveBtnVisible] = useState(false);
+
   //Speaker Intro State
   const [speaker_intro, setSpeakerIntro] = useState({
     speaker_intro: "",
@@ -25,6 +27,7 @@ function PresentationInfo() {
       ...speaker_intro,
       speaker_intro: e,
     });
+    setSaveBtnVisible(true);
   };
 
   // Speaker Intro Handle Change
@@ -33,6 +36,7 @@ function PresentationInfo() {
       ...presentation_synopsis,
       presentation_synopsis: e,
     });
+    setSaveBtnVisible(true);
   };
 
   return (
@@ -155,7 +159,10 @@ function PresentationInfo() {
                   </div>
                 </div>
               </div>
-              <SaveButton />
+              <SaveButton
+                saveBtnVisible={saveBtnVisible}
+                setSaveBtnVisible={setSaveBtnVisible}
+              />
             </div>
           </div>
         </div>
