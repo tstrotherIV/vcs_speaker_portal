@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./user_page.css";
 import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
-import DataManager from "../../data_module/DataManager"
-import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header"
+import DataManager from "../../data_module/DataManager";
+import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
 
 function SpeakerDetails(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -68,8 +68,8 @@ function SpeakerDetails(props) {
 
   const checkForUser = () => {
     const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
-  } 
+    props.setHasUser(user_id);
+  };
 
   useEffect(() => {
     checkForUser();
@@ -82,7 +82,7 @@ function SpeakerDetails(props) {
   return (
     <>
       <Container>
-      <UserIdentHeader />
+        <UserIdentHeader />
         <div className="main-body">
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
@@ -94,10 +94,16 @@ function SpeakerDetails(props) {
                       width="300px"
                     ></img>
                     <div className="mt-3">
-                      <h4>{user.first_name} {user.last_name}</h4>
-                      <p className="text-secondary mb-1">Vet Doctor</p>
+                      <h4>
+                        {user.first_name} {user.last_name}
+                      </h4>
+                      <p className="text-secondary mb-1">{user.title}</p>
                       <p className="text-muted font-size-sm">
-                        Bay Area, San Francisco, CA
+                        <p>{user.street_address}</p>
+                        <p>{user.housing_number}</p>
+                        <p>
+                          {user.city}, {user.state}, {user.zip_code}
+                        </p>
                       </p>
                     </div>
                   </div>
@@ -106,13 +112,13 @@ function SpeakerDetails(props) {
               <div className="card mt-3">
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">Company</h6>
+                    <h6 className="mb-0">{user.business_name}</h6>
                     <span className="text-secondary">Best Place Ever</span>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Email</h6>
                     <span className="text-secondary">
-                      imthebestdr@bestdr.com
+                      {user.preferred_email}
                     </span>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -122,7 +128,11 @@ function SpeakerDetails(props) {
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Address</h6>
                     <span className="text-secondary">
-                      555 Best Street, Awesome State, WY, 55555
+                      <p>{user.street_address}</p>
+                      <p>{user.housing_number}</p>
+                      <p>
+                        {user.city}, {user.state}, {user.zip_code}
+                      </p>
                     </span>
                   </li>
                 </ul>
@@ -369,9 +379,15 @@ function SpeakerDetails(props) {
                           honorariums will be $600 or more.
                         </p>
                       </div>
-                      <div className="col-sm-3 text-secondary">
+                      {/* <div className="col-sm-3 text-secondary">
                         <Button color="primary">Upload</Button>
-                      </div>
+                      </div> */}
+                      <Input
+                        type="text"
+                        onChange={handleFieldChange}
+                        id="w9"
+                        value={user.w9}
+                      ></Input>
                     </div>
                   </div>
                 </div>
