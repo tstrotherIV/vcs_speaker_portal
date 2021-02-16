@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Table } from "reactstrap";
 
-function DeadlinesAndRequirements() {
+function DeadlinesAndRequirements(props) {
+  // const [hasUser, setHasUser]= useState(false)
+
+  const checkForUser = () => {
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id)
+  } 
+
+  useEffect(() => {
+    checkForUser();
+  }, []);
   return (
     <>
       <Container className="pt-4">

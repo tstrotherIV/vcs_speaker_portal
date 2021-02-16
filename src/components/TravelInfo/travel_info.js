@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./travel_info.css";
 import { Container, Input, Label, ButtonGroup, Button } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 
-function UserTravelInfo() {
+function UserTravelInfo(props) {
   const [rSelected, setRSelected] = useState(null);
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
 
@@ -27,6 +27,15 @@ function UserTravelInfo() {
     setRSelected("Double");
     setSaveBtnVisible(true);
   };
+
+  const checkForUser = () => {
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id)
+  } 
+
+  useEffect(() => {
+    checkForUser();
+  }, []);
 
   return (
     <>

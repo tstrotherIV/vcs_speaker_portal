@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./user_page.css";
 import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
+import DataManager from "../../data_module/DataManager"
 
-function SpeakerDetails() {
+function SpeakerDetails(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
   const [user, setUser] = useState({
-    name: "",
+    first_name: "",
+    last_name: "",
+    title: "",
+    professional_designation: "",
+    business_name: "",
+    cell_phone_number: "",
+    work_phone: "",
+    street_adress: "",
+    housing_number: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    preferred_email: "",
+    alternate_email: "",
+    emergency_contact_name: "",
+    emergency_contact_number: "",
+    w9: "",
   });
 
   const handleFieldChange = (e) => {
@@ -16,6 +33,51 @@ function SpeakerDetails() {
     });
     setSaveBtnVisible(true);
   };
+
+  const updateUser = () => {
+    const edited_user = {
+      first_name: user.first_name,
+      last_name: user.last_name,
+      title: user.title,
+      professional_designation: user.professional_designation,
+      business_name: user.business_name,
+      cell_phone_number: user.cell_phone_number,
+      work_phone: user.work_phone,
+      street_adress: user.street_adress,
+      housing_number: user.housing_number,
+      city: user.city,
+      state: user.state,
+      zip_code: user.zip_code,
+      preferred_email: user.preferred_email,
+      alternate_email: user.alternate_email,
+      emergency_contact_name: user.emergency_contact_name,
+      emergency_contact_number: user.emergency_contact_number,
+      w9:
+        "https://drive.google.com/file/d/193mwuzEGKlfg3O0AFOnb6-ZRfRFmXPBB/view?usp=sharing",
+    };
+    DataManager.updateUser(edited_user).then(() => {});
+  };
+
+  const getData = () => {
+    const check_for_user = sessionStorage.getItem("user_id");
+
+    DataManager.getUser(check_for_user).then((user_info) => {
+      setUser(user_info);
+    });
+  };
+
+  const checkForUser = () => {
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id)
+  } 
+
+  useEffect(() => {
+    checkForUser();
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
@@ -291,8 +353,7 @@ function SpeakerDetails() {
                         </p>
                       </div>
                       <div className="col-sm-3 text-secondary">
-                        <Button color="primary"
-                        >Upload</Button>
+                        <Button color="primary">Upload</Button>
                       </div>
                     </div>
                   </div>

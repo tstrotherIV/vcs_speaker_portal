@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./presentation_info.css";
 import { Container, Button, ButtonGroup } from "reactstrap";
 import TextareaAutosize from "react-textarea-autosize";
@@ -6,7 +6,7 @@ import SaveButton from "../../shared/SaveButton/save_button";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-function PresentationInfo() {
+function PresentationInfo(props) {
   const [rSelected, setRSelected] = useState(null);
 
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -47,6 +47,15 @@ function PresentationInfo() {
     setRSelected("No");
     setSaveBtnVisible(true);
   };
+
+  const checkForUser = () => {
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id)
+  } 
+
+  useEffect(() => {
+    checkForUser();
+  }, []);
 
   return (
     <>

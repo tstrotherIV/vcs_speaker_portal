@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Collapse,
   Container,
@@ -14,11 +14,29 @@ import {
   DropdownItem,
 } from "reactstrap";
 import VCSlogo from "../../media/VCSlogo.png";
+import DataManager from "../../data_module/DataManager";
 
 const TopNav = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(props.hasUser);
+  const [loggedINUser, setLoggedInUser] = useState("");
+
+  const session_id = sessionStorage.getItem(`session_id`);
+
+  const handleLogout = () => {
+    DataManager.logoutUser(session_id).then(() => {
+      sessionStorage.removeItem("logged_in_user");
+      sessionStorage.removeItem("session_id");
+      props.history.push("/");
+    });
+  };
 
   const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (props.hasUser) {
+      setLoggedInUser(true)
+    }
+  }, [props.hasUser]);
 
   return (
     <div>
@@ -27,44 +45,50 @@ const TopNav = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/deadlines_and_Requirements">
-                Deadlines & Requirements
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/speaker_details">Speaker Details</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/presentation_details">
-                Presentation Details
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/continuing_education">CE Information</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/user_travel_info">Lodging</NavLink>
-            </NavItem>
+            {loggedINUser ? (
+              <>
+                <NavItem>
+                  <NavLink href="/deadlines_and_Requirements">
+                    Deadlines & Requirements
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/speaker_details">Speaker Details</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/presentation_details">
+                    Presentation Details
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/continuing_education">CE Information</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/user_travel_info">Lodging</NavLink>
+                </NavItem>
 
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Contact Us
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  <p>Sandi Strother</p>
-                  <p>Email: vetcancersociety@yahoo.com</p>
-                  <p>Phone: 573.823.8497</p>
-                  <p>Address P.O. Box 30855 Columbia, MO 65205</p>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <NavItem>
-              <NavLink href="http://vetcancersociety.org/" target="_blank">
-                VCS Website
-              </NavLink>
-            </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Contact Us
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      <p>Sandi Strother</p>
+                      <p>Email: vetcancersociety@yahoo.com</p>
+                      <p>Phone: 573.823.8497</p>
+                      <p>Address P.O. Box 30855 Columbia, MO 65205</p>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <NavItem>
+                  <NavLink href="http://vetcancersociety.org/" target="_blank">
+                    VCS Website
+                  </NavLink>
+                </NavItem>
+              </>
+            ) : (
+              ""
+            )}
           </Nav>
           <img src={VCSlogo} height="70px"></img>
         </Collapse>

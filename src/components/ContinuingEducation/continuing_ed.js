@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./continuing_ed.css";
 import { Container, Row, Col } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-function ContinuingEducation() {
+function ContinuingEducation(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
 
   // Learning Objectives State
@@ -95,6 +95,15 @@ function ContinuingEducation() {
     });
     setSaveBtnVisible(true);
   };
+
+  const checkForUser = () => {
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id)
+  } 
+
+  useEffect(() => {
+    checkForUser();
+  }, []);
 
   return (
     <>
