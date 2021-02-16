@@ -15,7 +15,7 @@ function SpeakerDetails(props) {
     business_name: "",
     cell_phone_number: "",
     work_phone: "",
-    street_adress: "",
+    street_address: "",
     housing_number: "",
     city: "",
     state: "",
@@ -44,7 +44,7 @@ function SpeakerDetails(props) {
       business_name: user.business_name,
       cell_phone_number: user.cell_phone_number,
       work_phone: user.work_phone,
-      street_adress: user.street_adress,
+      street_address: user.street_address,
       housing_number: user.housing_number,
       city: user.city,
       state: user.state,
@@ -193,7 +193,7 @@ function SpeakerDetails(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Business/ Orginization Name</h6>
+                      <h6 className="mb-0">Business/ Organization Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
                       <Input
@@ -227,8 +227,8 @@ function SpeakerDetails(props) {
                       <Input
                         type="text"
                         onChange={handleFieldChange}
-                        id="work_number"
-                        value={user.work_number}
+                        id="work_phone"
+                        value={user.work_phone}
                       ></Input>
                     </div>
                   </div>
@@ -349,7 +349,7 @@ function SpeakerDetails(props) {
                     <hr></hr>
                     <div className="row">
                       <div className="col-sm-3">
-                        <h6 className="mb-0">Emergency Contact Phont Number</h6>
+                        <h6 className="mb-0">Emergency Contact Phone Number</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
                         <Input
