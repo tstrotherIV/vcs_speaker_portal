@@ -56,7 +56,7 @@ function SpeakerDetails(props) {
       w9:
         "https://drive.google.com/file/d/193mwuzEGKlfg3O0AFOnb6-ZRfRFmXPBB/view?usp=sharing",
     };
-    DataManager.updateUser(edited_user).then(() => {});
+    DataManager.updateUser(user.id, edited_user).then(() => {});
   };
 
   const getLoggedInUser = () => {
