@@ -12,11 +12,11 @@ export default {
       body: JSON.stringify(newData),
     }).then((postedData) => postedData.json());
   },
-
-  async getUser(user_id) {
-    return fetch(`${remoteURL}/users/${user_id}`).then((results) => {
-      results.json();
-    });
+  
+  async getUser(userId) {
+    return fetch(`${remoteURL}/users/${userId}`).then((result) =>
+      result.json()
+    );
   },
 
   async updateUser(user_id, editedData) {

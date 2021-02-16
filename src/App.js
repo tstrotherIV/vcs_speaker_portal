@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <TopNav hasUser={hasUser}/>
-      <ApplicationViews setHasUser={setHasUser} />
+      <ApplicationViews setHasUser={setHasUser} hasUser={hasUser} />
     </>
   );
 }

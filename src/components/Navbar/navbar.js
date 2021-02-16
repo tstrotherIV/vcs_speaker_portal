@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Collapse,
-  Container,
   Navbar,
   NavbarToggler,
   NavbarBrand,
@@ -26,7 +25,7 @@ const TopNav = (props) => {
     DataManager.logoutUser(session_id).then(() => {
       sessionStorage.removeItem("logged_in_user");
       sessionStorage.removeItem("session_id");
-      props.history.push("/");
+      window.location.href = "/";
     });
   };
 
@@ -34,7 +33,7 @@ const TopNav = (props) => {
 
   useEffect(() => {
     if (props.hasUser) {
-      setLoggedInUser(true)
+      setLoggedInUser(true);
     }
   }, [props.hasUser]);
 
@@ -84,6 +83,9 @@ const TopNav = (props) => {
                   <NavLink href="http://vetcancersociety.org/" target="_blank">
                     VCS Website
                   </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#" onClick={handleLogout}>Logout</NavLink>
                 </NavItem>
               </>
             ) : (

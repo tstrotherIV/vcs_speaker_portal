@@ -1,20 +1,38 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Table } from "reactstrap";
+import DataManager from "../../data_module/DataManager";
+import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
 
 function DeadlinesAndRequirements(props) {
-  // const [hasUser, setHasUser]= useState(false)
+  const [user, setUser] = useState({
+    first_name: "",
+  });
+
+  const current_user = sessionStorage.getItem(`logged_in_user`);
 
   const checkForUser = () => {
     const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
-  } 
+    props.setHasUser(user_id);
+    if (!user_id) {
+      props.history.push("/");
+    }
+  };
+
+  const getLoggedInUser = () => {
+    DataManager.getUser(current_user).then((data) => {
+      setUser(data);
+    });
+  };
 
   useEffect(() => {
     checkForUser();
+    getLoggedInUser();
   }, []);
+
   return (
     <>
       <Container className="pt-4">
+      <UserIdentHeader />
         <h2>Deadlines &amp; Requirements Page</h2>
         <p>
           Thank you for confirming your participation as a presenter at the VCS

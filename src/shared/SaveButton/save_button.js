@@ -6,6 +6,11 @@ function SaveButton(props) {
   const [editIndicator, setEditIndicator] = useState(false);
 
 
+  const saveData = () => {
+    props.updateUser()
+    setEditIndicator(false)
+  }
+
   useEffect(() => {
     if (props.saveBtnVisible) {
       setEditIndicator(true)
@@ -22,7 +27,7 @@ function SaveButton(props) {
           <Button
             color="danger"
             className="saveBtn"
-            onClick={() => setEditIndicator(false)}
+            onClick={saveData}
           >
             Save Changes
           </Button>

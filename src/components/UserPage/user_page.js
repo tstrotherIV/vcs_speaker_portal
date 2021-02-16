@@ -3,6 +3,7 @@ import "./user_page.css";
 import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager"
+import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header"
 
 function SpeakerDetails(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -58,11 +59,10 @@ function SpeakerDetails(props) {
     DataManager.updateUser(edited_user).then(() => {});
   };
 
-  const getData = () => {
-    const check_for_user = sessionStorage.getItem("user_id");
-
-    DataManager.getUser(check_for_user).then((user_info) => {
-      setUser(user_info);
+  const getLoggedInUser = () => {
+    const current_user = sessionStorage.getItem(`logged_in_user`);
+    DataManager.getUser(current_user).then((data) => {
+      setUser(data);
     });
   };
 
@@ -76,12 +76,13 @@ function SpeakerDetails(props) {
   }, []);
 
   useEffect(() => {
-    getData();
+    getLoggedInUser();
   }, []);
 
   return (
     <>
       <Container>
+      <UserIdentHeader />
         <div className="main-body">
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
@@ -93,7 +94,7 @@ function SpeakerDetails(props) {
                       width="300px"
                     ></img>
                     <div className="mt-3">
-                      <h4>John Doe</h4>
+                      <h4>{user.first_name} {user.last_name}</h4>
                       <p className="text-secondary mb-1">Vet Doctor</p>
                       <p className="text-muted font-size-sm">
                         Bay Area, San Francisco, CA
@@ -143,6 +144,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="fist_name"
+                        value={user.first_name}
                       ></Input>
                     </div>
                   </div>
@@ -156,6 +158,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="last_name"
+                        value={user.last_name}
                       ></Input>
                     </div>
                   </div>
@@ -169,6 +172,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="title"
+                        value={user.title}
                       ></Input>
                     </div>
                   </div>
@@ -182,6 +186,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="professional_designation"
+                        value={user.professional_designation}
                       ></Input>
                     </div>
                   </div>
@@ -195,6 +200,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="business_name"
+                        value={user.business_name}
                       ></Input>
                     </div>
                   </div>
@@ -208,6 +214,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="cell_phone_number"
+                        value={user.cell_phone_number}
                       ></Input>
                     </div>
                   </div>
@@ -221,6 +228,7 @@ function SpeakerDetails(props) {
                         type="text"
                         onChange={handleFieldChange}
                         id="work_number"
+                        value={user.work_number}
                       ></Input>
                     </div>
                   </div>
@@ -238,6 +246,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="street_address"
+                          value={user.street_address}
                         ></Input>
                       </div>
                       <div className="col-sm-3 mt-2 mb-2">
@@ -248,6 +257,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="housing_number"
+                          value={user.housing_number}
                         ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
@@ -258,6 +268,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="city"
+                          value={user.city}
                         ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
@@ -268,6 +279,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="state"
+                          value={user.state}
                         ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
@@ -278,6 +290,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="zip_code"
+                          value={user.zip_code}
                         ></Input>
                       </div>
                     </div>
@@ -296,6 +309,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="preferred_email"
+                          value={user.preferred_email}
                         ></Input>
                       </div>
                     </div>
@@ -309,6 +323,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="alternate_email"
+                          value={user.alternate_email}
                         ></Input>
                       </div>
                     </div>
@@ -327,6 +342,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="emergency_contact_name"
+                          value={user.emergency_contact_name}
                         ></Input>
                       </div>
                     </div>
@@ -340,6 +356,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="emergency_contact_number"
+                          value={user.emergency_contact_number}
                         ></Input>
                       </div>
                     </div>
@@ -362,6 +379,7 @@ function SpeakerDetails(props) {
               <SaveButton
                 saveBtnVisible={saveBtnVisible}
                 setSaveBtnVisible={setSaveBtnVisible}
+                updateUser={updateUser}
               />
             </div>
           </div>
