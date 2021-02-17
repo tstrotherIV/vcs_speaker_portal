@@ -112,8 +112,8 @@ function SpeakerDetails(props) {
               <div className="card mt-3">
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">{user.business_name}</h6>
-                    <span className="text-secondary">Best Place Ever</span>
+                    <h6 className="mb-0">Business Name</h6>
+                    <span className="text-secondary">{user.business_name}</span>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Email</h6>
@@ -123,7 +123,7 @@ function SpeakerDetails(props) {
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Phone Number</h6>
-                    <span className="text-secondary">555-867-5309</span>
+                    <span className="text-secondary">{user.cell_phone_number}</span>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Address</h6>
@@ -153,7 +153,7 @@ function SpeakerDetails(props) {
                       <Input
                         type="text"
                         onChange={handleFieldChange}
-                        id="fist_name"
+                        id="first_name"
                         value={user.first_name}
                       ></Input>
                     </div>
@@ -379,9 +379,7 @@ function SpeakerDetails(props) {
                           honorariums will be $600 or more.
                         </p>
                       </div>
-                      {/* <div className="col-sm-3 text-secondary">
-                        <Button color="primary">Upload</Button>
-                      </div> */}
+                      
                       <Input
                         type="text"
                         onChange={handleFieldChange}

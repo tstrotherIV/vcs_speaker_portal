@@ -1,60 +1,61 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./presentation_info.css";
 import { Container, Button, ButtonGroup } from "reactstrap";
-import TextareaAutosize from "react-textarea-autosize";
 import SaveButton from "../../shared/SaveButton/save_button";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+
+import DataManager from "../../data_module/DataManager";
+import { DefaultEditor } from "react-simple-wysiwyg";
 
 function PresentationInfo(props) {
   const [rSelected, setRSelected] = useState(null);
-
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
-
-  //Speaker Intro State
-  const [speaker_intro, setSpeakerIntro] = useState({
+  const [user, setUser] = useState({
+    attending_conference: "",
     speaker_intro: "",
-  });
-
-  //Presentation Synopsis State
-  const [presentation_synopsis, setPresentation_Synopsis] = useState({
     presentation_synopsis: "",
   });
 
-  // Speaker Intro Handle Change
-  const handleChange_speaker_intro = (e) => {
-    setSpeakerIntro({
-      ...speaker_intro,
-      speaker_intro: e,
+  const users_id = sessionStorage.getItem(`logged_in_user`);
+
+  const handleFieldChange = (e) => {
+    setUser({
+      ...user,
+      [e.currentTarget.id]: e.target.value,
     });
-    setSaveBtnVisible(true);
+    setTimeout(() => {
+      setSaveBtnVisible(true);
+    }, 100);
   };
 
-  // Speaker Intro Handle Change
-  const handleChange_presentation_synopsis = (e) => {
-    setPresentation_Synopsis({
-      ...presentation_synopsis,
-      presentation_synopsis: e,
+  const updateAttending = (e) => {
+    e.target.value === "Yes" ? setRSelected("Yes") : setRSelected("No");
+    setTimeout(() => {
+      setSaveBtnVisible(true);
+    }, 100);
+  };
+
+  const updateUser = () => {
+    const edited_user = {
+      speaker_intro: user.speaker_intro,
+      presentation_synopsis: user.presentation_synopsis,
+      attending_conference: rSelected,
+    };
+    // console.log(edited_user)
+    DataManager.updateUser(users_id, edited_user).then(() => {});
+  };
+
+  const getLoggedInUser = () => {
+    const current_user = sessionStorage.getItem(`logged_in_user`);
+    DataManager.getUser(current_user).then((data) => {
+      setUser(data);
+      setRSelected(data.attending_conference);
     });
-    setSaveBtnVisible(true);
   };
-
-  const updateAttendingYes = () => {
-    setRSelected("Yes");
-    setSaveBtnVisible(true);
-  };
-  const updateAttendingNo = () => {
-    setRSelected("No");
-    setSaveBtnVisible(true);
-  };
-
-  const checkForUser = () => {
-    const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
-  } 
 
   useEffect(() => {
-    checkForUser();
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id);
+    getLoggedInUser();
   }, []);
 
   return (
@@ -117,11 +118,10 @@ function PresentationInfo(props) {
                       <p>*How you wish to be introduced; 50-100 words.</p>
                     </div>
                     <div className="col-sm-9 text-secondary quillContainer">
-                      <ReactQuill
-                        className="quillBox2"
-                        name="speaker_intro"
-                        value={speaker_intro.speaker_intro}
-                        onChange={handleChange_speaker_intro}
+                      <DefaultEditor
+                        id="speaker_intro"
+                        value={user.speaker_intro}
+                        onChange={handleFieldChange}
                       />
                     </div>
                   </div>
@@ -135,11 +135,10 @@ function PresentationInfo(props) {
                       </p>
                     </div>
                     <div className="col-sm-9 text-secondary quillContainer">
-                      <ReactQuill
-                        className="quillBox2"
-                        name="presentation_synopsis"
-                        value={presentation_synopsis.presentation_synopsis}
-                        onChange={handleChange_presentation_synopsis}
+                      <DefaultEditor
+                        id="presentation_synopsis"
+                        value={user.presentation_synopsis}
+                        onChange={handleFieldChange}
                       />
                     </div>
                   </div>
@@ -159,14 +158,16 @@ function PresentationInfo(props) {
                       <ButtonGroup>
                         <Button
                           color="primary"
-                          onClick={updateAttendingYes}
+                          value="Yes"
+                          onClick={updateAttending}
                           active={rSelected === "Yes"}
                         >
                           Yes
                         </Button>
                         <Button
                           color="primary"
-                          onClick={updateAttendingNo}
+                          value="No"
+                          onClick={updateAttending}
                           active={rSelected === "No"}
                         >
                           No
@@ -180,6 +181,7 @@ function PresentationInfo(props) {
               <SaveButton
                 saveBtnVisible={saveBtnVisible}
                 setSaveBtnVisible={setSaveBtnVisible}
+                updateUser={updateUser}
               />
             </div>
           </div>

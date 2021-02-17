@@ -1,108 +1,61 @@
 import React, { useState, useEffect } from "react";
 import "./continuing_ed.css";
-import { Container, Row, Col } from "reactstrap";
+import { Container } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { DefaultEditor } from "react-simple-wysiwyg";
+import DataManager from "../../data_module/DataManager";
 
 function ContinuingEducation(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
-
-  // Learning Objectives State
-  const [learning_objectives_1, setlearning_objectives_1] = useState({
+  const [user, setUser] = useState({
     learning_objectives_1: "",
-  });
-  const [learning_objectives_2, setlearning_objectives_2] = useState({
     learning_objectives_2: "",
-  });
-  const [learning_objectives_3, setlearning_objectives_3] = useState({
     learning_objectives_3: "",
-  });
-
-  // True/False State
-  const [true_false_1, settrue_false_1] = useState({
     true_false_1: "",
-  });
-  const [true_false_2, settrue_false_2] = useState({
     true_false_2: "",
-  });
-  const [true_false_3, settrue_false_3] = useState({
     true_false_3: "",
-  });
-  const [true_false_4, settrue_false_4] = useState({
     true_false_4: "",
-  });
-  const [true_false_5, settrue_false_5] = useState({
     true_false_5: "",
   });
 
-  // Learning Objectives Handle Change
-  const handleChange_learning_objectives_1 = (e) => {
-    setlearning_objectives_1({
-      ...learning_objectives_1,
-      learning_objectives_1: e,
+  const users_id = sessionStorage.getItem(`logged_in_user`);
+
+  const handleFieldChange = (e) => {
+    setUser({
+      ...user,
+      [e.currentTarget.id]: e.target.value,
     });
-    setSaveBtnVisible(true);
+    setTimeout(() => {
+      setSaveBtnVisible(true);
+    }, 100);
   };
 
-  const handleChange_learning_objectives_2 = (e) => {
-    setlearning_objectives_2({
-      learning_objectives_2: e,
-    });
-    setSaveBtnVisible(true);
+  const updateUser = () => {
+    const edited_user = {
+      learning_objectives_1: user.learning_objectives_1,
+      learning_objectives_2: user.learning_objectives_2,
+      learning_objectives_3: user.learning_objectives_3,
+      true_false_1: user.true_false_1,
+      true_false_2: user.true_false_2,
+      true_false_3: user.true_false_3,
+      true_false_4: user.true_false_4,
+      true_false_5: user.true_false_5,
+    };
+    // console.log(edited_user)
+    DataManager.updateUser(users_id, edited_user).then(() => {});
   };
 
-  const handleChange_learning_objectives_3 = (e) => {
-    setlearning_objectives_3({
-      learning_objectives_3: e,
+  const getLoggedInUser = () => {
+    const current_user = sessionStorage.getItem(`logged_in_user`);
+    DataManager.getUser(current_user).then((data) => {
+      setUser(data);
     });
-    setSaveBtnVisible(true);
   };
-
-  // True/False Handle Change
-  const handleChange_true_false_1 = (e) => {
-    settrue_false_1({
-      ...true_false_1,
-      true_false_1: e,
-    });
-    setSaveBtnVisible(true);
-  };
-  const handleChange_true_false_2 = (e) => {
-    settrue_false_2({
-      ...true_false_2,
-      true_false_2: e,
-    });
-    setSaveBtnVisible(true);
-  };
-  const handleChange_true_false_3 = (e) => {
-    settrue_false_3({
-      ...true_false_3,
-      true_false_3: e,
-    });
-    setSaveBtnVisible(true);
-  };
-  const handleChange_true_false_4 = (e) => {
-    settrue_false_4({
-      ...true_false_4,
-      true_false_4: e,
-    });
-    setSaveBtnVisible(true);
-  };
-  const handleChange_true_false_5 = (e) => {
-    settrue_false_5({
-      ...true_false_5,
-      true_false_5: e,
-    });
-    setSaveBtnVisible(true);
-  };
-
-  const checkForUser = () => {
-    const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
-  } 
 
   useEffect(() => {
-    checkForUser();
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id);
+    getLoggedInUser();
   }, []);
 
   return (
@@ -139,33 +92,30 @@ function ContinuingEducation(props) {
                     <p>Enter two or three learning objectives</p>
                     <div className="row">
                       <div className="col-sm-12 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="learning_objectives_1"
-                          value={learning_objectives_1.learning_objectives_1}
-                          onChange={handleChange_learning_objectives_1}
+                        <DefaultEditor
+                          id="learning_objectives_1"
+                          value={user.learning_objectives_1 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-sm-12 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="learning_objectives_2"
-                          value={learning_objectives_2.learning_objectives_2}
-                          onChange={handleChange_learning_objectives_2}
+                        <DefaultEditor
+                          id="learning_objectives_2"
+                          value={user.learning_objectives_2 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-sm-12 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="learning_objectives_3"
-                          value={learning_objectives_3.learning_objectives_3}
-                          onChange={handleChange_learning_objectives_3}
+                        <DefaultEditor
+                          id="learning_objectives_3"
+                          value={user.learning_objectives_3 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
@@ -182,11 +132,10 @@ function ContinuingEducation(props) {
                         <h6 className="mb-0">Question 1</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="true_false_1"
-                          value={true_false_1.true_false_1}
-                          onChange={handleChange_true_false_1}
+                        <DefaultEditor
+                          id="true_false_1"
+                          value={user.true_false_1 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
@@ -196,11 +145,10 @@ function ContinuingEducation(props) {
                         <h6 className="mb-0">Question 2</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="true_false_2"
-                          value={true_false_2.true_false_2}
-                          onChange={handleChange_true_false_2}
+                        <DefaultEditor
+                          id="true_false_2"
+                          value={user.true_false_2 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
@@ -210,11 +158,10 @@ function ContinuingEducation(props) {
                         <h6 className="mb-0">Question 3</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="true_false_3"
-                          value={true_false_3.true_false_3}
-                          onChange={handleChange_true_false_3}
+                        <DefaultEditor
+                          id="true_false_3"
+                          value={user.true_false_3 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
@@ -224,11 +171,10 @@ function ContinuingEducation(props) {
                         <h6 className="mb-0">Question 4</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="true_false_4"
-                          value={true_false_4.true_false_4}
-                          onChange={handleChange_true_false_4}
+                        <DefaultEditor
+                          id="true_false_4"
+                          value={user.true_false_4 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
@@ -238,11 +184,10 @@ function ContinuingEducation(props) {
                         <h6 className="mb-0">Question 5</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                        <ReactQuill
-                          className="quillBox"
-                          name="true_false_5"
-                          value={true_false_5.true_false_5}
-                          onChange={handleChange_true_false_5}
+                        <DefaultEditor
+                          id="true_false_5"
+                          value={user.true_false_5 || ""}
+                          onChange={handleFieldChange}
                         />
                         <br></br>
                       </div>
@@ -254,6 +199,7 @@ function ContinuingEducation(props) {
                 <SaveButton
                   saveBtnVisible={saveBtnVisible}
                   setSaveBtnVisible={setSaveBtnVisible}
+                  updateUser={updateUser}
                 />
               </div>
             </div>
