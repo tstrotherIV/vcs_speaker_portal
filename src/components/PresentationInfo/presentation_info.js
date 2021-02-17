@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import "./presentation_info.css";
 import { Container, Button, ButtonGroup } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
-
 import DataManager from "../../data_module/DataManager";
 import { DefaultEditor } from "react-simple-wysiwyg";
 

@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./travel_info.css";
 import { Container, Input, Label, ButtonGroup, Button } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
+import DataManager from "../../data_module/DataManager";
 
 function UserTravelInfo(props) {
   const [rSelected, setRSelected] = useState(null);
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
-
   const [user, setUser] = useState({
-    name: "",
+    arrival_date: "",
+    departure_date: "",
   });
+
+  const users_id = sessionStorage.getItem(`logged_in_user`);
+
 
   const handleFieldChange = (e) => {
     setUser({
@@ -19,22 +23,37 @@ function UserTravelInfo(props) {
     setSaveBtnVisible(true);
   };
 
-  const updateRoomTypeKing = () => {
-    setRSelected("King");
-    setSaveBtnVisible(true);
-  };
-  const updateRoomTypeDouble = () => {
-    setRSelected("Double");
-    setSaveBtnVisible(true);
+  const updateAttending = (e) => {
+    e.target.value === "King" ? setRSelected("King") : setRSelected("Double");
+    setTimeout(() => {
+      setSaveBtnVisible(true);
+    }, 100);
   };
 
-  const checkForUser = () => {
-    const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
-  } 
+  const updateUser = () => {
+    const edited_user = {
+      arrival_date: user.arrival_date,
+      departure_date: user.departure_date,
+      hotel_room_type: rSelected,
+    };
+    // console.log(edited_user)
+    DataManager.updateUser(users_id, edited_user).then(() => {});
+  };
+
+  const getLoggedInUser = () => {
+    const current_user = sessionStorage.getItem(`logged_in_user`);
+    DataManager.getUser(current_user).then((data) => {
+      setUser(data);
+      setRSelected(data.hotel_room_type);
+    });
+  };
+
+  
 
   useEffect(() => {
-    checkForUser();
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    props.setHasUser(user_id)
+    getLoggedInUser();
   }, []);
 
   return (
@@ -67,6 +86,7 @@ function UserTravelInfo(props) {
                           type="date"
                           onChange={handleFieldChange}
                           id="arrival_date"
+                          value={user.arrival_date}
                         />
                       </div>
                     </div>
@@ -82,6 +102,7 @@ function UserTravelInfo(props) {
                           type="date"
                           onChange={handleFieldChange}
                           id="departure_date"
+                          value={user.departure_date}
                         />
                       </div>
                     </div>
@@ -94,14 +115,16 @@ function UserTravelInfo(props) {
                       <ButtonGroup>
                         <Button
                           color="primary"
-                          onClick={updateRoomTypeKing}
-                          active={rSelected === "king"}
+                          value="King"
+                          onClick={updateAttending}
+                          active={rSelected === "King"}
                         >
                           King
                         </Button>
                         <Button
                           color="primary"
-                          onClick={updateRoomTypeDouble}
+                          value="Double"
+                          onClick={updateAttending}
                           active={rSelected === "Double"}
                         >
                           Double
@@ -115,6 +138,7 @@ function UserTravelInfo(props) {
               <SaveButton
                 saveBtnVisible={saveBtnVisible}
                 setSaveBtnVisible={setSaveBtnVisible}
+                updateUser={updateUser}
               />
             </div>
           </div>
