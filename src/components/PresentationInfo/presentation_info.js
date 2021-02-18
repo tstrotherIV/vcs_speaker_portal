@@ -119,7 +119,7 @@ function PresentationInfo(props) {
                     <div className="col-sm-9 text-secondary quillContainer">
                       <DefaultEditor
                         id="speaker_intro"
-                        value={user.speaker_intro}
+                        value={user.speaker_intro || ""}
                         onChange={handleFieldChange}
                       />
                     </div>
@@ -136,7 +136,7 @@ function PresentationInfo(props) {
                     <div className="col-sm-9 text-secondary quillContainer">
                       <DefaultEditor
                         id="presentation_synopsis"
-                        value={user.presentation_synopsis}
+                        value={user.presentation_synopsis || ""}
                         onChange={handleFieldChange}
                       />
                     </div>
