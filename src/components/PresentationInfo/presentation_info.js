@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./presentation_info.css";
 import { Container, Button, ButtonGroup } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
