@@ -41,7 +41,8 @@ function ContinuingEducation(props) {
       true_false_4: user.true_false_4,
       true_false_5: user.true_false_5,
     };
-    // console.log(edited_user)
+    console.log(edited_user.true_false_1)
+    console.log(edited_user.true_false_2)
     DataManager.updateUser(users_id, edited_user).then(() => {});
   };
 

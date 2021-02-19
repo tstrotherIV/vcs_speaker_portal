@@ -88,7 +88,7 @@ function AdminDashboard(props) {
               </td>
               <td>{user.cell_phone_number}</td>
               <td>{user.email}</td>
-              {/* <td>
+              <td>
                 <Button
                   onClick={() => {
                     props.history.push(`/vcs-admin-dashboard/${user.id}`);
@@ -96,7 +96,7 @@ function AdminDashboard(props) {
                 >
                   More Details
                 </Button>
-              </td> */}
+              </td>
             </tr>
           ))}
         </tbody>
