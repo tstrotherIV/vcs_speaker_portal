@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./continuing_ed.css";
-import { Container } from "reactstrap";
-import SaveButton from "../../shared/SaveButton/save_button";
-import { DefaultEditor } from "react-simple-wysiwyg";
+import { Container, Button} from "reactstrap";
 import DataManager from "../../data_module/DataManager";
+import docTemplate from "../../media/VCS Continuing Education Q^0A Template.docx"
 
 function ContinuingEducation(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -41,8 +40,8 @@ function ContinuingEducation(props) {
       true_false_4: user.true_false_4,
       true_false_5: user.true_false_5,
     };
-    console.log(edited_user.true_false_1)
-    console.log(edited_user.true_false_2)
+    console.log(edited_user.true_false_1);
+    console.log(edited_user.true_false_2);
     DataManager.updateUser(users_id, edited_user).then(() => {});
   };
 
@@ -67,141 +66,36 @@ function ContinuingEducation(props) {
             <div className="col-md-12">
               <h3>Continuing Education Page</h3>
               <h6>
-                The following information is required of all presenters
-                including oral abstract presenters. You may use multiple choice
-                or true/false questions. Poster abstract presenters do not need
-                to enter this information.
+                All presenters, with the exception of poster presenters, are
+                required to submit three learning objectives and five multiple
+                choice questions with answers noted for continuing education
+                purposes. Download the template that you will see (BELOW?) and
+                use this form to enter your presentation information. Follow the
+                directions on the template closely before uploading to the
+                speaker portal. Your CE document is due no later than August
+                1st.
               </h6>
+              <br></br>
               <div className="card mb-3">
                 <div className="card-body">
-                  <div className="example-question-box">
-                    <h5>Example of how to format your question and answers: </h5>
-                    <div>
-                      <p>What is the first letter of the alphabet?</p>
-                      <ol>
-                        <li>B</li>
-                        <li>K</li>
-                        <li>M</li>
-                        <li>A</li>
-                      </ol>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">VCS Continuing Education Q^0A Template</h6>
                     </div>
-                    <p>The correct answer is #4</p>
-                  </div>
-                  <hr></hr>
-                  <div className="pb-5">
-                    <h5>Learning Objectives</h5>
-                    <p>Enter two or three learning objectives</p>
-                    <div className="row">
-                      <div className="col-sm-12 text-secondary remove-toolbar">
-                        <DefaultEditor
-                          id="learning_objectives_1"
-                          value={user.learning_objectives_1 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-12 text-secondary">
-                        <DefaultEditor
-                          id="learning_objectives_2"
-                          value={user.learning_objectives_2 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-12 text-secondary">
-                        <DefaultEditor
-                          id="learning_objectives_3"
-                          value={user.learning_objectives_3 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
+                    <div className="col-sm-9 text-secondary">
+                      <a href={docTemplate} download>Download File</a>
                     </div>
                   </div>
                   <hr></hr>
-                  <Container>
-                    <div>
-                      <h5>Multiple Choice or True/False Questions</h5>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Upload Completed File</h6>
                     </div>
-
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h6 className="mb-0">Question 1</h6>
-                      </div>
-                      <div className="col-sm-9 text-secondary">
-                        <DefaultEditor
-                          id="true_false_1"
-                          value={user.true_false_1 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
+                    <div className="col-sm-9 text-secondary">
+                      <Button href="https://www.dropbox.com/request/ORBJR9nRTa3t4MIJfPGR" color="primary">Upload</Button>
                     </div>
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h6 className="mb-0">Question 2</h6>
-                      </div>
-                      <div className="col-sm-9 text-secondary">
-                        <DefaultEditor
-                          id="true_false_2"
-                          value={user.true_false_2 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h6 className="mb-0">Question 3</h6>
-                      </div>
-                      <div className="col-sm-9 text-secondary">
-                        <DefaultEditor
-                          id="true_false_3"
-                          value={user.true_false_3 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h6 className="mb-0">Question 4</h6>
-                      </div>
-                      <div className="col-sm-9 text-secondary">
-                        <DefaultEditor
-                          id="true_false_4"
-                          value={user.true_false_4 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h6 className="mb-0">Question 5</h6>
-                      </div>
-                      <div className="col-sm-9 text-secondary">
-                        <DefaultEditor
-                          id="true_false_5"
-                          value={user.true_false_5 || ""}
-                          onChange={handleFieldChange}
-                        />
-                        <br></br>
-                      </div>
-                    </div>
-                  </Container>
+                  </div>
                 </div>
-              </div>
-              <div className="saveBtn">
-                <SaveButton
-                  saveBtnVisible={saveBtnVisible}
-                  setSaveBtnVisible={setSaveBtnVisible}
-                  updateUser={updateUser}
-                />
               </div>
             </div>
           </div>
