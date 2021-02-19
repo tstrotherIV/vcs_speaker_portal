@@ -379,14 +379,8 @@ function SpeakerDetails(props) {
                           honorariums will be $600 or more.
                         </p>
                       </div>
-                      
-                      <Input
-                        type="text"
-                        onChange={handleFieldChange}
-                        id="w9"
-                        value={user.w9}
-                      ></Input>
                     </div>
+                      <Button href="https://www.dropbox.com/request/IuYsh153bQVJnd2vDZnk" target="_blank">Upload w9</Button>
                   </div>
                 </div>
               </div>

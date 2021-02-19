@@ -92,7 +92,7 @@ function ContinuingEducation(props) {
                     <h5>Learning Objectives</h5>
                     <p>Enter two or three learning objectives</p>
                     <div className="row">
-                      <div className="col-sm-12 text-secondary">
+                      <div className="col-sm-12 text-secondary remove-toolbar">
                         <DefaultEditor
                           id="learning_objectives_1"
                           value={user.learning_objectives_1 || ""}

@@ -76,7 +76,7 @@ function PresentationInfo(props) {
                       <p>*Not required of oral or poster abstract presenters</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button color="primary">Upload</Button>
+                      <Button href="https://www.dropbox.com/request/82Pl4Dhc57Maa4qPXkpp" color="primary">Upload</Button>
                     </div>
                   </div>
                   <hr></hr>
@@ -86,16 +86,7 @@ function PresentationInfo(props) {
                       <p>*High resolution (300+ dpi)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button color="primary">Upload</Button>
-                    </div>
-                  </div>
-                  <hr></hr>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Full CV</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      <Button color="primary">Upload</Button>
+                      <Button href="https://www.dropbox.com/request/1KnCvEbGaNbFF6pRvkAp" color="primary">Upload</Button>
                     </div>
                   </div>
                   <hr></hr>
@@ -107,7 +98,7 @@ function PresentationInfo(props) {
                       </p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button color="primary">Upload</Button>
+                      <Button href="https://www.dropbox.com/request/LlM1HxbhkEL3DVzFte0h" color="primary">Upload</Button>
                     </div>
                   </div>
                   <hr></hr>
