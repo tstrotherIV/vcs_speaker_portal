@@ -288,7 +288,7 @@ function SpeakerDetails(props) {
                         <Input
                           type="text"
                           onChange={handleFieldChange}
-                          id="state"
+                          id="user_state"
                           value={user.user_state}
                         ></Input>
                       </div>
