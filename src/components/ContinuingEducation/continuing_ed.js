@@ -92,7 +92,7 @@ function ContinuingEducation(props) {
                       <h6 className="mb-0">Upload Completed File</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button href="https://www.dropbox.com/request/ORBJR9nRTa3t4MIJfPGR" color="primary">Upload</Button>
+                      <Button href="https://www.dropbox.com/request/ORBJR9nRTa3t4MIJfPGR" target="_blank" color="primary">Upload</Button>
                     </div>
                   </div>
                 </div>
