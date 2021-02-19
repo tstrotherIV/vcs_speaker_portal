@@ -7,10 +7,12 @@ import PresentationInfo from "./PresentationInfo/presentation_info";
 import UserTravelInfo from "./TravelInfo/travel_info";
 import InfoPage from "./InfoPage/info_page";
 import ContinuingEducation from "./ContinuingEducation/continuing_ed";
+import AdminLoginPage from "./admin/Dashboard/admin_login";
+import AdminDashboard from "./admin/Dashboard/admin_dashboard";
+import UserDetailView from "./admin/UserView/user_view";
 
 const ApplicationViews = (props) => {
-
-  const setHasUser = props.setHasUser
+  const setHasUser = props.setHasUser;
 
   return (
     <>
@@ -61,6 +63,29 @@ const ApplicationViews = (props) => {
         path="/user_travel_info"
         render={(props) => {
           return <UserTravelInfo setHasUser={setHasUser} {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/vcs-admin-login"
+        render={(props) => {
+          return <AdminLoginPage setHasUser={setHasUser} {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/vcs-admin-dashboard"
+        render={(props) => {
+          return <AdminDashboard setHasUser={setHasUser} {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/vcs-admin-dashboard/:userId"
+        render={(props) => {
+          return <UserDetailView 
+          userId={props.match.params.userId}
+          {...props} />;
         }}
       />
     </>

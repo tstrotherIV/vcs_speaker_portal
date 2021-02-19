@@ -19,6 +19,12 @@ export default {
     );
   },
 
+  async getAllUsers() {
+    return fetch(`${remoteURL}/users`).then((result) =>
+      result.json()
+    );
+  },
+
   async updateUser(user_id, editedData) {
     return fetch(`${remoteURL}/users/${user_id}`, {
       method: "PATCH",

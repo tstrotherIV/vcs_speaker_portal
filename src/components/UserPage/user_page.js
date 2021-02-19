@@ -18,7 +18,7 @@ function SpeakerDetails(props) {
     street_address: "",
     housing_number: "",
     city: "",
-    state: "",
+    user_state: "",
     zip_code: "",
     preferred_email: "",
     alternate_email: "",
@@ -47,7 +47,7 @@ function SpeakerDetails(props) {
       street_address: user.street_address,
       housing_number: user.housing_number,
       city: user.city,
-      state: user.state,
+      user_state: user.user_state,
       zip_code: user.zip_code,
       preferred_email: user.preferred_email,
       alternate_email: user.alternate_email,
@@ -102,7 +102,7 @@ function SpeakerDetails(props) {
                         <p>{user.street_address}</p>
                         <p>{user.housing_number}</p>
                         <p>
-                          {user.city}, {user.state}, {user.zip_code}
+                          {user.city}, {user.user_state}, {user.zip_code}
                         </p>
                       </p>
                     </div>
@@ -131,7 +131,7 @@ function SpeakerDetails(props) {
                       <p>{user.street_address}</p>
                       <p>{user.housing_number}</p>
                       <p>
-                        {user.city}, {user.state}, {user.zip_code}
+                        {user.city}, {user.user_state}, {user.zip_code}
                       </p>
                     </span>
                   </li>
@@ -289,7 +289,7 @@ function SpeakerDetails(props) {
                           type="text"
                           onChange={handleFieldChange}
                           id="state"
-                          value={user.state}
+                          value={user.user_state}
                         ></Input>
                       </div>
                       <div className="col-sm-3 col-sm-3 mt-2 mb-2">
