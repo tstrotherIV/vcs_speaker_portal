@@ -8,6 +8,7 @@ function AdminLoginPage(props) {
     email: "",
     password: "",
   });
+  const [adminUser, setAdminUser] = useState("");
 
   // Update state whenever an input field is edited
   const handleFieldChange = (evt) => {
@@ -30,9 +31,15 @@ function AdminLoginPage(props) {
         if (!data.id) {
           alert("Email or Password is not correct. Please Try again.");
         } else {
-          sessionStorage.setItem("session_id", data.id);
-          sessionStorage.setItem("logged_in_user", data.user_id);
-          props.history.push("/vcs-admin-dashboard");
+          DataManager.getUser(data.user_id).then((person) => {
+            if (!person.admin || person.admin === false) {
+              alert("You are not authorized");
+            } else {
+              sessionStorage.setItem("session_id", data.id);
+              sessionStorage.setItem("logged_in_user", data.user_id);
+              props.history.push("/vcs-admin-dashboard");
+            }
+          });
         }
       });
     }
@@ -40,11 +47,11 @@ function AdminLoginPage(props) {
 
   const checkForUser = () => {
     const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
+    props.setHasUser(user_id);
     if (user_id) {
       props.history.push("/deadlines_and_Requirements");
     }
-  } 
+  };
 
   useEffect(() => {
     checkForUser();
@@ -113,4 +120,4 @@ function AdminLoginPage(props) {
   );
 }
 
-export default AdminLoginPage
+export default AdminLoginPage;
