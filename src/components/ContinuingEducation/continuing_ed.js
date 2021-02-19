@@ -75,7 +75,7 @@ function ContinuingEducation(props) {
               <div className="card mb-3">
                 <div className="card-body">
                   <div className="example-question-box">
-                    <h5>Example of how to format your question and answers:</h5>
+                    <h5>Example of how to format your question and answers: </h5>
                     <div>
                       <p>What is the first letter of the alphabet?</p>
                       <ol>
