@@ -40,11 +40,11 @@ function Home(props) {
 
   const checkForUser = () => {
     const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
+    props.setHasUser(user_id);
     if (user_id) {
       props.history.push("/deadlines_and_Requirements");
     }
-  } 
+  };
 
   useEffect(() => {
     checkForUser();
@@ -81,19 +81,6 @@ function Home(props) {
             />
           </div>
 
-          <div className="form-group">
-            <div className="custom-control custom-checkbox">
-              <Input
-                type="checkbox"
-                className="custom-control-Input"
-                id="customCheck1"
-              />
-              <Label className="custom-control-Label" htmlFor="customCheck1">
-                Remember me
-              </Label>
-            </div>
-          </div>
-
           <Button
             type="submit"
             className="btn btn-dark btn-lg btn-block"
@@ -101,9 +88,6 @@ function Home(props) {
           >
             Sign in
           </Button>
-          {/* <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-          </p> */}
           <p className="forgot-password text-right">
             <a href="/sign_up">Create VCS Speaker Account</a>
           </p>
