@@ -25,6 +25,7 @@ const TopNav = (props) => {
     DataManager.logoutUser(session_id).then(() => {
       sessionStorage.removeItem("logged_in_user");
       sessionStorage.removeItem("session_id");
+      sessionStorage.removeItem("authorized");
       window.location.href = "/";
     });
   };

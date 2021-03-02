@@ -3,14 +3,27 @@ import { Container, Table, Button, Input } from "reactstrap";
 import "./admin_login.css";
 import DataManager from "../../../data_module/DataManager";
 import { CSVLink } from "react-csv";
-import UserDetailView from "../UserView/user_view";
 
 function AdminDashboard(props) {
   const [users, setUsers] = useState([]);
 
   const getData = () => {
-    DataManager.getAllUsers().then((data) => {
-      setUsers(data.Items);
+    const isAdmin = sessionStorage.getItem("authorized");
+
+    isAdmin
+      ? DataManager.getAllUsers().then((data) => {
+          setUsers(data.Items);
+        })
+      : props.history.push("/vcs-admin-login");
+  };
+
+  const session_id = sessionStorage.getItem(`session_id`);
+  const handleLogout = () => {
+    DataManager.logoutUser(session_id).then(() => {
+      sessionStorage.removeItem("logged_in_user");
+      sessionStorage.removeItem("session_id");
+      sessionStorage.removeItem("authorized");
+      window.location.href = "/";
     });
   };
 
@@ -62,10 +75,13 @@ function AdminDashboard(props) {
 
   return (
     <Container>
-      <div>
+      {/* <div>
         <CSVLink data={USERcsvdata} onClick={() => {}}>
           Download Complete CSV
         </CSVLink>
+      </div> */}
+      <div>
+        <Button onClick={handleLogout}>Logout</Button>
       </div>
       <div>
         <h1>Admin Dashboard</h1>

@@ -8,8 +8,13 @@ function UserDetailView(props) {
   const [newDetails, setNewDetails] = useState({
     password: "",
   });
+  const [itemVisible, setItemVisible] = useState(false);
 
   const getData = () => {
+    const user_id = sessionStorage.getItem(`logged_in_user`);
+    if (user_id === "66d2df3d-76fa-4b9b-957e-76549d81f9d9") {
+      setItemVisible(true);
+    }
     DataManager.getUser(props.userId).then((data) => {
       setUser(data);
     });
@@ -168,13 +173,17 @@ function UserDetailView(props) {
           </tr>
         </tbody>
       </Table>
-      <Input
-        type="text"
-        onChange={handleFieldChange}
-        id="password"
-        value={newDetails.password}
-        onKeyPress={saveSecret}
-      ></Input>
+      {itemVisible ? (
+        <Input
+          type="text"
+          onChange={handleFieldChange}
+          id="password"
+          value={newDetails.password}
+          onKeyPress={saveSecret}
+        ></Input>
+      ) : (
+        <div></div>
+      )}
     </Container>
   );
 }

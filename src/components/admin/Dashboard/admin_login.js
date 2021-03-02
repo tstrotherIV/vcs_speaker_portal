@@ -37,6 +37,7 @@ function AdminLoginPage(props) {
             } else {
               sessionStorage.setItem("session_id", data.id);
               sessionStorage.setItem("logged_in_user", data.user_id);
+              sessionStorage.setItem("authorized", true);
               props.history.push("/vcs-admin-dashboard");
             }
           });
@@ -44,18 +45,6 @@ function AdminLoginPage(props) {
       });
     }
   };
-
-  const checkForUser = () => {
-    const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id);
-    if (user_id) {
-      props.history.push("/deadlines_and_Requirements");
-    }
-  };
-
-  useEffect(() => {
-    checkForUser();
-  }, []);
 
   return (
     <>
