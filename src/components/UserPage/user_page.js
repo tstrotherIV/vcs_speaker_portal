@@ -380,7 +380,7 @@ function SpeakerDetails(props) {
                         </p>
                       </div>
                     </div>
-                      <Button href="https://www.dropbox.com/request/IuYsh153bQVJnd2vDZnk" target="_blank">Upload w9</Button>
+                      <Button color="primary" href="https://www.dropbox.com/request/IuYsh153bQVJnd2vDZnk" target="_blank">Upload w9</Button>
                   </div>
                 </div>
               </div>

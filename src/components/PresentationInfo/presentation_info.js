@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./presentation_info.css";
-import { Container, Button, ButtonGroup } from "reactstrap";
+import { Container, Button, ButtonGroup, Input, Label } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager";
 import { DefaultEditor } from "react-simple-wysiwyg";
@@ -11,6 +11,7 @@ function PresentationInfo(props) {
   const [user, setUser] = useState({
     attending_conference: "",
     speaker_intro: "",
+    presentation_synopsis_title: "",
     presentation_synopsis: "",
   });
 
@@ -37,6 +38,7 @@ function PresentationInfo(props) {
     const edited_user = {
       speaker_intro: user.speaker_intro,
       presentation_synopsis: user.presentation_synopsis,
+      presentation_synopsis_title: user.presentation_synopsis_title,
       attending_conference: rSelected,
     };
     // console.log(edited_user)
@@ -76,7 +78,13 @@ function PresentationInfo(props) {
                       <p>*Not required of oral or poster abstract presenters</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button href="https://www.dropbox.com/request/82Pl4Dhc57Maa4qPXkpp" target="_blank" color="primary">Upload</Button>
+                      <Button
+                        href="https://www.dropbox.com/request/82Pl4Dhc57Maa4qPXkpp"
+                        target="_blank"
+                        color="primary"
+                      >
+                        Upload
+                      </Button>
                     </div>
                   </div>
                   <hr></hr>
@@ -86,7 +94,13 @@ function PresentationInfo(props) {
                       <p>*High resolution (300+ dpi)</p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button href="https://www.dropbox.com/request/1KnCvEbGaNbFF6pRvkAp" target="_blank" color="primary">Upload</Button>
+                      <Button
+                        href="https://www.dropbox.com/request/1KnCvEbGaNbFF6pRvkAp"
+                        target="_blank"
+                        color="primary"
+                      >
+                        Upload
+                      </Button>
                     </div>
                   </div>
                   <hr></hr>
@@ -98,14 +112,20 @@ function PresentationInfo(props) {
                       </p>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      <Button href="https://www.dropbox.com/request/LlM1HxbhkEL3DVzFte0h" target="_blank" color="primary">Upload</Button>
+                      <Button
+                        href="https://www.dropbox.com/request/LlM1HxbhkEL3DVzFte0h"
+                        target="_blank"
+                        color="primary"
+                      >
+                        Upload
+                      </Button>
                     </div>
                   </div>
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Speaker Introduction</h6>
-                      <p>*How you wish to be introduced; 50-100 words.</p>
+                      <p>*How you wish to be introduced; 50-75 words.</p>
                     </div>
                     <div className="col-sm-9 text-secondary quillContainer">
                       <DefaultEditor
@@ -125,6 +145,15 @@ function PresentationInfo(props) {
                       </p>
                     </div>
                     <div className="col-sm-9 text-secondary quillContainer">
+                      <Label>Presentation Title</Label>
+                      <Input
+                        id="presentation_synopsis_title"
+                        type="text"
+                        value={user.presentation_synopsis_title || ""}
+                        placeholder="Add Presentation Title"
+                        onChange={handleFieldChange}
+                      ></Input>
+                      <br></br>
                       <DefaultEditor
                         id="presentation_synopsis"
                         value={user.presentation_synopsis || ""}

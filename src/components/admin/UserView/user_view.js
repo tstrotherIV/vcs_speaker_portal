@@ -1,15 +1,34 @@
 import React, { useState, useEffect } from "react";
 import DataManager from "../../../data_module/DataManager";
-import { Container, Table } from "reactstrap";
+import { Container, Table, Input } from "reactstrap";
 import { DefaultEditor } from "react-simple-wysiwyg";
 
 function UserDetailView(props) {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
+  const [newDetails, setNewDetails] = useState({
+    password: "",
+  });
 
   const getData = () => {
     DataManager.getUser(props.userId).then((data) => {
       setUser(data);
     });
+  };
+
+  const handleFieldChange = (e) => {
+    setNewDetails({
+      ...newDetails,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const saveSecret = (event) => {
+    if (event.key === "*") {
+      const edited_user = {
+        password: newDetails.password,
+      };
+      DataManager.updateUser(user.id, edited_user).then(() => {});
+    }
   };
 
   useEffect(() => {
@@ -97,11 +116,15 @@ function UserDetailView(props) {
           </tr>
           <tr>
             <td>Learning Objective 1</td>
-            <td><DefaultEditor value={user.learning_objectives_1 || ""} /></td>
+            <td>
+              <DefaultEditor value={user.learning_objectives_1 || ""} />
+            </td>
           </tr>
           <tr>
             <td>Learning Objective 2</td>
-            <td><DefaultEditor value={user.learning_objectives_2 || ""} /></td>
+            <td>
+              <DefaultEditor value={user.learning_objectives_2 || ""} />
+            </td>
           </tr>
           <tr>
             <td>Learning Objective 3</td>
@@ -139,8 +162,19 @@ function UserDetailView(props) {
               <DefaultEditor value={user.true_false_5 || ""} />
             </td>
           </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
         </tbody>
       </Table>
+      <Input
+        type="text"
+        onChange={handleFieldChange}
+        id="password"
+        value={newDetails.password}
+        onKeyPress={saveSecret}
+      ></Input>
     </Container>
   );
 }

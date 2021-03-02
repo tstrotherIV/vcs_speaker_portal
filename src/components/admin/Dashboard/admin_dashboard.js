@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table, Button } from "reactstrap";
+import { Container, Table, Button, Input } from "reactstrap";
 import "./admin_login.css";
 import DataManager from "../../../data_module/DataManager";
 import { CSVLink } from "react-csv";
@@ -58,7 +58,6 @@ function AdminDashboard(props) {
 
   useEffect(() => {
     getData();
-    // makeCSV()
   }, []);
 
   return (

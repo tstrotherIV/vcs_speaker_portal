@@ -67,7 +67,7 @@ function DeadlinesAndRequirements(props) {
           </li>
           <li>Technician Workshop Presenters: All sections except Lodging.</li>
           <li>
-            15 Minute Oral Abstract Presenters: All sections speaker lodging.
+            15 Minute Oral Abstract Presenters: All sections except Lodging.
           </li>
           <li>
             Poster Abstract Presenters: Only complete Speaker Details and
