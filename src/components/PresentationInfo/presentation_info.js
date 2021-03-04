@@ -137,18 +137,8 @@ function PresentationInfo(props) {
                   </div>
                   <hr></hr>
                   <div className="row">
-                    <div className="col-sm-3">
-                      <Label className="mb-4 font-weight-bold">
-                        Presentation Title
-                      </Label>
-                      <h6 className="mb-0">Presentation Synopsis</h6>
-                      <p>
-                        250-300 words. This section is not required of oral and
-                        poster abstract presenters.
-                      </p>
-                    </div>
-                    <div className="col-sm-9 text-secondary quillContainer">
-                      <Label></Label>
+                    <h6 className="col-sm-3">Presentation Title</h6>
+                    <div className="col-sm-9">
                       <Input
                         id="presentation_synopsis_title"
                         type="text"
@@ -157,6 +147,18 @@ function PresentationInfo(props) {
                         onChange={handleFieldChange}
                       ></Input>
                       <br></br>
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Presentation Synopsis</h6>
+                      <p>
+                        250-300 words. This section is not required of oral and
+                        poster abstract presenters.
+                      </p>
+                    </div>
+                    <div className="col-sm-9 text-secondary quillContainer">
                       <DefaultEditor
                         id="presentation_synopsis"
                         value={user.presentation_synopsis || ""}
