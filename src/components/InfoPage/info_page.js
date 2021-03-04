@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table } from "reactstrap";
+import { Button, Container, Table } from "reactstrap";
 import DataManager from "../../data_module/DataManager";
 import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
 
@@ -32,7 +32,7 @@ function DeadlinesAndRequirements(props) {
   return (
     <>
       <Container className="pt-4">
-      <UserIdentHeader />
+        <UserIdentHeader />
         <h2>Deadlines &amp; Requirements Page</h2>
         <p>
           Thank you for confirming your participation as a presenter at the VCS
@@ -128,6 +128,17 @@ function DeadlinesAndRequirements(props) {
             </tr>
           </tbody>
         </Table>
+      </Container>
+      <Container className="footer-container">
+        <Button
+          color="primary"
+          className="navButton"
+          onClick={() => {
+            window.location.href = "/speaker_details";
+          }}
+        >
+          Next
+        </Button>
       </Container>
     </>
   );

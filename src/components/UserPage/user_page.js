@@ -4,6 +4,7 @@ import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager";
 import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
+import Footer from "../../components/footer/footer";
 
 function SpeakerDetails(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -24,7 +25,6 @@ function SpeakerDetails(props) {
     alternate_email: "",
     emergency_contact_name: "",
     emergency_contact_number: "",
-    w9: "",
   });
 
   const handleFieldChange = (e) => {
@@ -53,8 +53,6 @@ function SpeakerDetails(props) {
       alternate_email: user.alternate_email,
       emergency_contact_name: user.emergency_contact_name,
       emergency_contact_number: user.emergency_contact_number,
-      w9:
-        "https://drive.google.com/file/d/193mwuzEGKlfg3O0AFOnb6-ZRfRFmXPBB/view?usp=sharing",
     };
     DataManager.updateUser(user.id, edited_user).then(() => {});
   };
@@ -78,6 +76,9 @@ function SpeakerDetails(props) {
   useEffect(() => {
     getLoggedInUser();
   }, []);
+
+  const next = "/deadlines_and_Requirements";
+  const back = "/presentation_details";
 
   return (
     <>
@@ -123,7 +124,9 @@ function SpeakerDetails(props) {
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Phone Number</h6>
-                    <span className="text-secondary">{user.cell_phone_number}</span>
+                    <span className="text-secondary">
+                      {user.cell_phone_number}
+                    </span>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">Address</h6>
@@ -380,7 +383,13 @@ function SpeakerDetails(props) {
                         </p>
                       </div>
                     </div>
-                      <Button color="primary" href="https://www.dropbox.com/request/IuYsh153bQVJnd2vDZnk" target="_blank">Upload w9</Button>
+                    <Button
+                      color="primary"
+                      href="https://www.dropbox.com/request/IuYsh153bQVJnd2vDZnk"
+                      target="_blank"
+                    >
+                      Upload w9
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -392,6 +401,18 @@ function SpeakerDetails(props) {
             </div>
           </div>
         </div>
+      </Container>
+      <Container className="footer-container">
+        <Button color="primary" className="navButton" onClick={() => {
+          window.location.href='/deadlines_and_Requirements';
+        }}>
+          Previous
+        </Button>
+        <Button color="primary" className="navButton" onClick={() => {
+          window.location.href='/presentation_details';
+        }}>
+          Next
+        </Button>
       </Container>
     </>
   );

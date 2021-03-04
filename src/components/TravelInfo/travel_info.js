@@ -14,7 +14,6 @@ function UserTravelInfo(props) {
 
   const users_id = sessionStorage.getItem(`logged_in_user`);
 
-
   const handleFieldChange = (e) => {
     setUser({
       ...user,
@@ -48,11 +47,9 @@ function UserTravelInfo(props) {
     });
   };
 
-  
-
   useEffect(() => {
     const user_id = sessionStorage.getItem(`logged_in_user`);
-    props.setHasUser(user_id)
+    props.setHasUser(user_id);
     getLoggedInUser();
   }, []);
 
@@ -143,6 +140,17 @@ function UserTravelInfo(props) {
             </div>
           </div>
         </div>
+      </Container>
+      <Container className="footer-container">
+        <Button
+          color="primary"
+          className="navButton"
+          onClick={() => {
+            window.location.href = "/continuing_education";
+          }}
+        >
+          Previous
+        </Button>
       </Container>
     </>
   );

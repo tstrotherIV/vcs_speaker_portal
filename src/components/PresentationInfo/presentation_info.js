@@ -206,6 +206,26 @@ function PresentationInfo(props) {
           </div>
         </div>
       </Container>
+      <Container className="footer-container">
+        <Button
+          color="primary"
+          className="navButton"
+          onClick={() => {
+            window.location.href = "/speaker_details";
+          }}
+        >
+          Previous
+        </Button>
+        <Button
+          color="primary"
+          className="navButton"
+          onClick={() => {
+            window.location.href = "/continuing_education";
+          }}
+        >
+          Next
+        </Button>
+      </Container>
     </>
   );
 }
