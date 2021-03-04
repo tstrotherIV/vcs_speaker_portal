@@ -138,14 +138,17 @@ function PresentationInfo(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
+                      <Label className="mb-4 font-weight-bold">
+                        Presentation Title
+                      </Label>
                       <h6 className="mb-0">Presentation Synopsis</h6>
                       <p>
-                        250-300 words. NOT required of oral or poster abstract
-                        presenters.
+                        250-300 words. This section is not required of oral and
+                        poster abstract presenters.
                       </p>
                     </div>
                     <div className="col-sm-9 text-secondary quillContainer">
-                      <Label>Presentation Title</Label>
+                      <Label></Label>
                       <Input
                         id="presentation_synopsis_title"
                         type="text"
@@ -163,10 +166,8 @@ function PresentationInfo(props) {
                   </div>
                   <hr></hr>
                   <p className="mb-0">
-                    Conference registration is included for some presenters.
-                    Refer to your contract to determine if it is. Oral and
-                    poster presenters must be registered for the conference in
-                    order to present their abstract.
+                    Refer to your contract to determine if conference
+                    registration is complimentary.
                   </p>
                   <br></br>
                   <div className="row">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./continuing_ed.css";
 import { Container, Button } from "reactstrap";
 import docTemplate from "../../media/VCS Continuing Education Q&A Template.docx";
-import "./continuing_ed.css"
+import "./continuing_ed.css";
 
 function ContinuingEducation(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -20,14 +20,12 @@ function ContinuingEducation(props) {
             <div className="col-md-12">
               <h3>Continuing Education Page</h3>
               <h6>
-                All presenters, with the exception of poster presenters, are
+                All presenters, except for poster abstract presenters, are
                 required to submit three learning objectives and five multiple
-                choice questions with answers noted for continuing education
-                purposes. Download the template that you will see (BELOW?) and
-                use this form to enter your presentation information. Follow the
-                directions on the template closely before uploading to the
-                speaker portal. Your CE document is due no later than August
-                1st.
+                choice questions with answers. Download the template found here
+                and follow the directions on the template closely before
+                uploading to the speaker portal. Your CE document is due no
+                later than August 1st.
               </h6>
               <br></br>
               <div className="card mb-3">
