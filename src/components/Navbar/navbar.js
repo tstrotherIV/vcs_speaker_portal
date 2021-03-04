@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import VCSlogo from "../../media/VCSlogo.png";
 import DataManager from "../../data_module/DataManager";
+import "./navbar.css";
 
 const TopNav = (props) => {
   const [isOpen, setIsOpen] = useState(props.hasUser);
@@ -40,7 +41,7 @@ const TopNav = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" fixed="top">
         <NavbarBrand href="/">VCS Speaker Portal</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -86,7 +87,9 @@ const TopNav = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#" onClick={handleLogout}>Logout</NavLink>
+                  <NavLink href="#" onClick={handleLogout}>
+                    Logout
+                  </NavLink>
                 </NavItem>
               </>
             ) : (

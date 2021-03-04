@@ -22,3 +22,7 @@
 /* .remove-toolbar > div {
   background-color: red !important;
 } */
+
+.headerMargin{
+  margin-top: 100px;
+}

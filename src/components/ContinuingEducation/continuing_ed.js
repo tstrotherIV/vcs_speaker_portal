@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./continuing_ed.css";
 import { Container, Button } from "reactstrap";
-import DataManager from "../../data_module/DataManager";
-import docTemplate from "../../media/VCS Continuing Education Q^0A Template.docx";
+import docTemplate from "../../media/VCS Continuing Education Q&A Template.docx";
+import "./continuing_ed.css"
 
 function ContinuingEducation(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -14,7 +14,7 @@ function ContinuingEducation(props) {
 
   return (
     <>
-      <Container>
+      <Container className="headerMargin">
         <div className="main-body">
           <div className="row">
             <div className="col-md-12">

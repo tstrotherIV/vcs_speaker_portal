@@ -1,3 +1,18 @@
 .textAreaWidth{
   width: 100%;
 }
+
+.headerMargin{
+  margin-top: 100px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navButton {
+  flex: 1 0;
+  margin: 4px;
+}

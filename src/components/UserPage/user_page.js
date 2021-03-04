@@ -4,7 +4,6 @@ import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager";
 import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
-import Footer from "../../components/footer/footer";
 
 function SpeakerDetails(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -82,7 +81,7 @@ function SpeakerDetails(props) {
 
   return (
     <>
-      <Container>
+      <Container className="headerMargin">
         <UserIdentHeader />
         <div className="main-body">
           <div className="row gutters-sm">
@@ -90,19 +89,15 @@ function SpeakerDetails(props) {
               <div className="card">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <img
-                      src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/features/_2016/05_2016/how_to_choose_the_right_vet_features/1800x1200_how_to_choose_the_right_vet_features.jpg"
-                      width="300px"
-                    ></img>
                     <div className="mt-3">
                       <h4>
                         {user.first_name} {user.last_name}
                       </h4>
-                      <p className="text-secondary mb-1">{user.title}</p>
+                      <p className="text-secondary mb-1">Title: {user.title}</p>
                       <p className="text-muted font-size-sm">
-                        <p>{user.street_address}</p>
-                        <p>{user.housing_number}</p>
-                        <p>
+                        <p className="m-0">{user.street_address}</p>
+                        <p className="m-0">{user.housing_number}</p>
+                        <p className="m-0">
                           {user.city}, {user.user_state}, {user.zip_code}
                         </p>
                       </p>
@@ -376,10 +371,10 @@ function SpeakerDetails(props) {
                     <hr></hr>
                     <div className="row">
                       <div className="col-sm-6">
-                        <h6 className="mb-0">Signed W9</h6>
+                        <h6 className="mb-0">Completed W9</h6>
                         <p>
-                          *for keynote speakers or other presenters whose
-                          honorariums will be $600 or more.
+                          *For any presenter whose total honorarium will exceed
+                          $600
                         </p>
                       </div>
                     </div>
@@ -403,14 +398,22 @@ function SpeakerDetails(props) {
         </div>
       </Container>
       <Container className="footer-container">
-        <Button color="primary" className="navButton" onClick={() => {
-          window.location.href='/deadlines_and_Requirements';
-        }}>
+        <Button
+          color="primary"
+          className="navButton"
+          onClick={() => {
+            window.location.href = "/deadlines_and_Requirements";
+          }}
+        >
           Previous
         </Button>
-        <Button color="primary" className="navButton" onClick={() => {
-          window.location.href='/presentation_details';
-        }}>
+        <Button
+          color="primary"
+          className="navButton"
+          onClick={() => {
+            window.location.href = "/presentation_details";
+          }}
+        >
           Next
         </Button>
       </Container>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Container, Table } from "reactstrap";
 import DataManager from "../../data_module/DataManager";
 import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
+import "./info_page.css"
 
 function DeadlinesAndRequirements(props) {
   const [user, setUser] = useState({
@@ -31,7 +32,7 @@ function DeadlinesAndRequirements(props) {
 
   return (
     <>
-      <Container className="pt-4">
+      <Container className="pt-4" className="headerMargin">
         <UserIdentHeader />
         <h2>Deadlines &amp; Requirements Page</h2>
         <p>
