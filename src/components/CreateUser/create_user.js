@@ -48,6 +48,9 @@ function SignUp(props) {
             }
           });
         }
+        if (user.status === 400) {
+          alert("The email provided has already been used. Please use another email address.")
+        }
       });
     }
   };
