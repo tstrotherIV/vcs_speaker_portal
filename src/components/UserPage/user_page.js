@@ -370,7 +370,7 @@ function SpeakerDetails(props) {
                     </div>
                     <hr></hr>
                     <div className="row">
-                      <div className="col-sm-6">
+                      <div className="col-sm-12">
                         <h6 className="mb-0">Completed W9</h6>
                         <p>
                           *For any presenter whose total honorarium will exceed
