@@ -120,54 +120,6 @@ function UserDetailView(props) {
             <td>{user.emergency_contact_number}</td>
           </tr>
           <tr>
-            <td>Learning Objective 1</td>
-            <td>
-              <DefaultEditor value={user.learning_objectives_1 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>Learning Objective 2</td>
-            <td>
-              <DefaultEditor value={user.learning_objectives_2 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>Learning Objective 3</td>
-            <td>
-              <DefaultEditor value={user.learning_objectives_3 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>True/ False 1</td>
-            <td>
-              <DefaultEditor value={user.true_false_1 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>True/ False 2</td>
-            <td>
-              <DefaultEditor value={user.true_false_2 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>True/ False 3</td>
-            <td>
-              <DefaultEditor value={user.true_false_3 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>True/ False 4</td>
-            <td>
-              <DefaultEditor value={user.true_false_4 || ""} />
-            </td>
-          </tr>
-          <tr>
-            <td>True/ False 5</td>
-            <td>
-              <DefaultEditor value={user.true_false_5 || ""} />
-            </td>
-          </tr>
-          <tr>
             <td></td>
             <td></td>
           </tr>
