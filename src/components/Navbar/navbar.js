@@ -82,7 +82,7 @@ const TopNav = (props) => {
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>
-                  <NavLink href="http://vetcancersociety.org/" target="_blank">
+                  <NavLink href="http://vetcancersociety.org/conference/" target="_blank">
                     VCS Website
                   </NavLink>
                 </NavItem>

@@ -90,6 +90,22 @@ function PresentationInfo(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
+                      <h6 className="mb-0">Professional CV</h6>
+                      <p>*This is NOT required for oral or poster abstract presenters</p>
+                    </div>
+                    <div className="col-sm-9 text-secondary">
+                      <Button
+                        href="https://www.dropbox.com/request/IAdS6QNz3yjBva2iekFl"
+                        target="_blank"
+                        color="primary"
+                      >
+                        Upload
+                      </Button>
+                    </div>
+                  </div>
+                  <hr></hr>
+                  <div className="row">
+                    <div className="col-sm-3">
                       <h6 className="mb-0">Professional Photo</h6>
                       <p>*High resolution (300+ dpi)</p>
                     </div>
