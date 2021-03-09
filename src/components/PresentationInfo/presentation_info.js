@@ -4,6 +4,7 @@ import { Container, Button, ButtonGroup, Input, Label } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager";
 import { DefaultEditor } from "react-simple-wysiwyg";
+import CompletedImage from "../../media/completed.png"
 
 function PresentationInfo(props) {
   const [rSelected, setRSelected] = useState(null);
@@ -73,11 +74,11 @@ function PresentationInfo(props) {
               <div className="card mb-3">
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-3">
                       <h6 className="mb-0">Signed Contract</h6>
                       <p>*Not required of oral or poster abstract presenters</p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-4 text-secondary">
                       <Button
                         href="https://www.dropbox.com/request/82Pl4Dhc57Maa4qPXkpp"
                         target="_blank"
@@ -86,14 +87,24 @@ function PresentationInfo(props) {
                         Upload
                       </Button>
                     </div>
+                    <div className="col-3">
+                      {user.signed_contract ? (
+                        <img src={CompletedImage} height="50px"></img>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Professional CV</h6>
-                      <p>*This is NOT required for oral or poster abstract presenters</p>
+                      <p>
+                        *This is NOT required for oral or poster abstract
+                        presenters
+                      </p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-4 text-secondary">
                       <Button
                         href="https://www.dropbox.com/request/IAdS6QNz3yjBva2iekFl"
                         target="_blank"
@@ -102,6 +113,13 @@ function PresentationInfo(props) {
                         Upload
                       </Button>
                     </div>
+                    <div className="col-3">
+                    {user.cv ? (
+                        <img src={CompletedImage} height="50px"></img>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                   <hr></hr>
                   <div className="row">
@@ -109,7 +127,7 @@ function PresentationInfo(props) {
                       <h6 className="mb-0">Professional Photo</h6>
                       <p>*High resolution (300+ dpi)</p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-4 text-secondary">
                       <Button
                         href="https://www.dropbox.com/request/1KnCvEbGaNbFF6pRvkAp"
                         target="_blank"
@@ -117,6 +135,13 @@ function PresentationInfo(props) {
                       >
                         Upload
                       </Button>
+                    </div>
+                    <div className="col-3">
+                    {user.professional_photo ? (
+                        <img src={CompletedImage} height="50px"></img>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                   <hr></hr>
@@ -127,7 +152,7 @@ function PresentationInfo(props) {
                         *Resident Review and Technician Workshop speakers only
                       </p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-4 text-secondary">
                       <Button
                         href="https://www.dropbox.com/request/LlM1HxbhkEL3DVzFte0h"
                         target="_blank"
@@ -135,6 +160,13 @@ function PresentationInfo(props) {
                       >
                         Upload
                       </Button>
+                    </div>
+                    <div className="col-3">
+                    {user.speaker_notes ? (
+                        <img src={CompletedImage} height="50px"></img>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                   <hr></hr>

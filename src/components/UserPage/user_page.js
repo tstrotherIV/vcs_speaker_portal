@@ -4,6 +4,7 @@ import { Container, Button, Input } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager";
 import UserIdentHeader from "../../shared/User_Ident_Header/user_identity_header";
+import CompletedImage from "../../media/completed.png"
 
 function SpeakerDetails(props) {
   const [saveBtnVisible, setSaveBtnVisible] = useState(false);
@@ -24,6 +25,7 @@ function SpeakerDetails(props) {
     alternate_email: "",
     emergency_contact_name: "",
     emergency_contact_number: "",
+    w9: false,
   });
 
   const handleFieldChange = (e) => {
@@ -370,12 +372,15 @@ function SpeakerDetails(props) {
                     </div>
                     <hr></hr>
                     <div className="row">
-                      <div className="col-sm-12">
+                      <div className="col-8">
                         <h6 className="mb-0">Completed W9</h6>
                         <p>
                           *For any presenter whose total honorarium will exceed
                           $600
                         </p>
+                      </div>
+                      <div className="col-4">
+                      {user.w9 ? <img src={CompletedImage} height="50px"></img> : ""}
                       </div>
                     </div>
                     <Button
