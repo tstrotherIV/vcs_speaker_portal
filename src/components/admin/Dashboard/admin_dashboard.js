@@ -72,14 +72,24 @@ function AdminDashboard(props) {
     const editedSpeaker = {
       [name]: value,
     };
-    DataManager.updateUser(userId, editedSpeaker);
-    // setUsers({...users, [name]: value})
-    console.log(userId, editedSpeaker);
+    DataManager.updateUser(userId, editedSpeaker).then(() => {
+      // getData();
+    });
+    const listUsers = [...users];
+    listUsers.map((user, index) => {
+      if (user.id === userId) {
+        const userToEdit = users[index];
+        const userEditedData = { ...userToEdit, [name]: value };
+        users.splice(index, 1, userEditedData);
+        console.log(users);
+        setUsers(users);
+      }
+    });
   };
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [users]);
 
   return (
     <Container className="headerMargin">
@@ -98,15 +108,15 @@ function AdminDashboard(props) {
         <Table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Phone Number</th>
-              <th>Email</th>
-              <th>W9</th>
-              <th>Contract</th>
-              <th>CV</th>
-              <th>Photo</th>
-              <th>Speaker Notes</th>
-              <th>CE File</th>
+              <th className="center">Name</th>
+              <th className="center">Phone Number</th>
+              <th className="center">Email</th>
+              <th className="center">W9</th>
+              <th className="center">Contract</th>
+              <th className="center">CV</th>
+              <th className="center">Photo</th>
+              <th className="center">Speaker Notes</th>
+              <th className="center">CE File</th>
             </tr>
           </thead>
           <tbody>
@@ -118,70 +128,58 @@ function AdminDashboard(props) {
                 <td>{user.cell_phone_number}</td>
                 <td>{user.email}</td>
                 <td>
-                  <Input
+                  <input
                     type="checkbox"
                     id={user.id}
                     name="w9"
                     checked={user.w9}
                     onChange={handleCheckboxChange}
-                  >
-                    w9
-                  </Input>
+                  />
                 </td>
-                <td>
-                  <Input
+                <td className="pl-4">
+                  <input
                     type="checkbox"
                     id={user.id}
                     name="signed_contract"
                     checked={user.signed_contract}
                     onChange={handleCheckboxChange}
-                  >
-                    Signed Contract
-                  </Input>
+                  />
                 </td>
                 <td>
-                  <Input
+                  <input
                     type="checkbox"
                     id={user.id}
                     name="cv"
                     checked={user.cv}
                     onChange={handleCheckboxChange}
-                  >
-                    CV
-                  </Input>
+                  />
                 </td>
-                <td>
-                  <Input
+                <td className="pl-4">
+                  <input
                     type="checkbox"
                     id={user.id}
                     name="professional_photo"
                     checked={user.professional_photo}
                     onChange={handleCheckboxChange}
-                  >
-                    Photo
-                  </Input>
+                  />
                 </td>
-                <td>
+                <td className="pl-5">
                   <Input
                     type="checkbox"
                     id={user.id}
                     name="speaker_notes"
                     checked={user.speaker_notes}
                     onChange={handleCheckboxChange}
-                  >
-                    Speaker Notes
-                  </Input>
+                  />
                 </td>
                 <td>
-                  <Input
+                  <input
                     type="checkbox"
                     id={user.id}
                     name="ce_document"
                     checked={user.ce_document}
                     onChange={handleCheckboxChange}
-                  >
-                    CE file
-                  </Input>
+                  />
                 </td>
                 <td>
                   <Button
