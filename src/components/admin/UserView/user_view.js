@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataManager from "../../../data_module/DataManager";
 import { Container, Table, Input } from "reactstrap";
 import { DefaultEditor } from "react-simple-wysiwyg";
+import "./user_view.css"
 
 function UserDetailView(props) {
   const [user, setUser] = useState({});
@@ -41,7 +42,7 @@ function UserDetailView(props) {
   });
 
   return (
-    <Container>
+    <Container className="headerMargin">
       <h1>{`${user.first_name} ${user.last_name}'s Details`}</h1>
       <Table>
         <thead>
