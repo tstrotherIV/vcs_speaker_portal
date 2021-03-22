@@ -150,7 +150,7 @@ function PresentationInfo(props) {
                       <h6 className="mb-0">Speaker Notes</h6>
                       <p>
                         *Technician Workshop speaker notes due 8/1/2021.
-                        Resident Review Workshop speaker notes due 10/1/2021.
+                        Resident Review Workshop speaker notes due 10/1/2021. No other presenters are required to upload speaker notes.
                       </p>
                     </div>
                     <div className="col-4 text-secondary">
