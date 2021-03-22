@@ -4,7 +4,7 @@ import { Container, Button, ButtonGroup, Input, Label } from "reactstrap";
 import SaveButton from "../../shared/SaveButton/save_button";
 import DataManager from "../../data_module/DataManager";
 import { DefaultEditor } from "react-simple-wysiwyg";
-import CompletedImage from "../../media/completed.png"
+import CompletedImage from "../../media/completed.png";
 
 function PresentationInfo(props) {
   const [rSelected, setRSelected] = useState(null);
@@ -114,7 +114,7 @@ function PresentationInfo(props) {
                       </Button>
                     </div>
                     <div className="col-3">
-                    {user.cv ? (
+                      {user.cv ? (
                         <img src={CompletedImage} height="50px"></img>
                       ) : (
                         ""
@@ -137,7 +137,7 @@ function PresentationInfo(props) {
                       </Button>
                     </div>
                     <div className="col-3">
-                    {user.professional_photo ? (
+                      {user.professional_photo ? (
                         <img src={CompletedImage} height="50px"></img>
                       ) : (
                         ""
@@ -149,7 +149,8 @@ function PresentationInfo(props) {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Speaker Notes</h6>
                       <p>
-                        *Resident Review and Technician Workshop speakers only
+                        *Technician Workshop speaker notes due 8/1/2021.
+                        Resident Review Workshop speaker notes due 10/1/2021.
                       </p>
                     </div>
                     <div className="col-4 text-secondary">
@@ -162,7 +163,7 @@ function PresentationInfo(props) {
                       </Button>
                     </div>
                     <div className="col-3">
-                    {user.speaker_notes ? (
+                      {user.speaker_notes ? (
                         <img src={CompletedImage} height="50px"></img>
                       ) : (
                         ""
