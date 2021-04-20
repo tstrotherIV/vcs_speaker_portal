@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataManager from "../../../data_module/DataManager";
 import { Container, Table, Input } from "reactstrap";
 import { DefaultEditor } from "react-simple-wysiwyg";
-import "./user_view.css"
+import "./user_view.css";
 
 function UserDetailView(props) {
   const [user, setUser] = useState({});
@@ -119,6 +119,58 @@ function UserDetailView(props) {
           <tr>
             <td>Emgergency Contact Number</td>
             <td>{user.emergency_contact_number}</td>
+          </tr>
+          <tr>
+            <td>Speaker Intro</td>
+            <td>
+              <DefaultEditor
+                id="speaker_intro"
+                value={user.speaker_intro || ""}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Presentation Title</td>
+            <td>{user.presentation_synopsis_title}</td>
+          </tr>
+          <tr>
+            <td>Presentation Synopsis</td>
+            <td>
+              <DefaultEditor
+                id="presentation_synopsis"
+                value={user.presentation_synopsis || ""}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Attending the Conference?</td>
+            <td>{user.attending_conference}</td>
+          </tr>
+          <tr>
+            <td>Arrival Date</td>
+            <td>
+              <Input
+                className="textAreaWidth"
+                type="date"
+                value={user.arrival_date}
+                disabled
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Departure Date</td>
+            <td>
+              <Input
+                className="textAreaWidth"
+                type="date"
+                value={user.departure_date}
+                disabled
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Room Type Requested</td>
+            <td>{user.hotel_room_type}</td>
           </tr>
           <tr>
             <td></td>
