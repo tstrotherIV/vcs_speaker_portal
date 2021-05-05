@@ -54,7 +54,7 @@
   border-radius: 20px;
 }
 
-.headerMargin{
+.headerMargin {
   margin-top: 100px;
   min-width: 90% !important;
 }
@@ -62,4 +62,3 @@
 .center {
   padding: 10px !important;
 }
-
