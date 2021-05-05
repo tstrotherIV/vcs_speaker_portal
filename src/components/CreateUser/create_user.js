@@ -37,7 +37,6 @@ function SignUp(props) {
 
       DataManager.createNewAccount(newUser).then((user) => {
         if (user.status === 200) {
-          console.log("account created", user);
           DataManager.loginUser(newUser).then((data) => {
             if (!data.id) {
               alert("Email or Password is not correct. Please Try again.");

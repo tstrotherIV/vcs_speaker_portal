@@ -35,7 +35,6 @@ function UserTravelInfo(props) {
       departure_date: user.departure_date,
       hotel_room_type: rSelected,
     };
-    // console.log(edited_user)
     DataManager.updateUser(users_id, edited_user).then(() => {});
   };
 

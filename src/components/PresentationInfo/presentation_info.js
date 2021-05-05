@@ -42,7 +42,6 @@ function PresentationInfo(props) {
       presentation_synopsis_title: user.presentation_synopsis_title,
       attending_conference: rSelected,
     };
-    // console.log(edited_user)
     DataManager.updateUser(users_id, edited_user).then(() => {});
   };
 
