@@ -11,7 +11,7 @@ function AdminDashboard(props) {
 
     isAdmin
       ? DataManager.getAllUsers().then((data) => {
-          setUsers(data.Items);
+          setUsers(data.Items.sort((a, b) => a.first_name.localeCompare(b.first_name)));
         })
       : props.history.push("/vcs-admin-login");
   };
