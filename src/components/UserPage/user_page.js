@@ -246,7 +246,7 @@ function SpeakerDetails(props) {
 
                   {/* Mailing Address */}
                   <div>
-                    <h4 className="pb-2">Preferred Mailing Address</h4>
+                    <h4 className="pb-2">Home Mailing Address</h4>
                     <div className="row">
                       <div className="col-sm-3 mt-2 mb-2">
                         <h6 className="mb-0">Street Address</h6>

@@ -91,41 +91,34 @@ function DeadlinesAndRequirements(props) {
               <th scope="row">
                 <a href="/speaker_details">Speaker Details</a>
               </th>
-              <td>05/01/2021</td>
+              <td>05/01/2022</td>
             </tr>
             <tr>
               <th scope="row">
                 <a href="/presentation_details">Presentation Details</a>
               </th>
-              <td>05/01/2021</td>
+              <td>05/01/2022</td>
             </tr>
             <tr>
               <th scope="row">
                 <a href="/continuing_education">CE Information</a>
               </th>
-              <td>08/01/2021</td>
+              <td>08/01/2022</td>
             </tr>
             <tr>
               <th scope="row">
                 <a href="/presentation_details">Technician Speaker Notes</a>
               </th>
-              <td>08/01/2021</td>
+              <td>08/01/2022</td>
             </tr>
-            <tr>
-              <th scope="row">
-                <a href="/user_travel_info">
-                  Lodging Information (specific speakers only)
-                </a>
-              </th>
-              <td>09/01/2021</td>
-            </tr>
+            
             <tr>
               <th scope="row">
                 <a href="/presentation_details">
                   Resident Review Speaker Notes
                 </a>
               </th>
-              <td>10/01/2021</td>
+              <td>10/01/2022</td>
             </tr>
           </tbody>
         </Table>

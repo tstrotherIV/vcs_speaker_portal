@@ -14,6 +14,8 @@ function PresentationInfo(props) {
     speaker_intro: "",
     presentation_synopsis_title: "",
     presentation_synopsis: "",
+    presentation_synopsis_title_second: "",
+    presentation_synopsis_second: ""
   });
 
   const users_id = sessionStorage.getItem(`logged_in_user`);
@@ -28,18 +30,20 @@ function PresentationInfo(props) {
     }, 100);
   };
 
-  const updateAttending = (e) => {
-    e.target.value === "Yes" ? setRSelected("Yes") : setRSelected("No");
-    setTimeout(() => {
-      setSaveBtnVisible(true);
-    }, 100);
-  };
+  // const updateAttending = (e) => {
+  //   e.target.value === "Yes" ? setRSelected("Yes") : setRSelected("No");
+  //   setTimeout(() => {
+  //     setSaveBtnVisible(true);
+  //   }, 100);
+  // };
 
   const updateUser = () => {
     const edited_user = {
       speaker_intro: user.speaker_intro,
       presentation_synopsis: user.presentation_synopsis,
       presentation_synopsis_title: user.presentation_synopsis_title,
+      presentation_synopsis_second: user.presentation_synopsis_second,
+      presentation_synopsis_title_second: user.presentation_synopsis_title_second,
       attending_conference: rSelected,
     };
     DataManager.updateUser(users_id, edited_user).then(() => {});
@@ -88,7 +92,7 @@ function PresentationInfo(props) {
                     </div>
                     <div className="col-3">
                       {user.signed_contract ? (
-                        <img src={CompletedImage} height="50px"></img>
+                        <img src={CompletedImage} height="50px" alt="completed"></img>
                       ) : (
                         ""
                       )}
@@ -98,10 +102,7 @@ function PresentationInfo(props) {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Professional CV</h6>
-                      <p>
-                        *This is NOT required for oral or poster abstract
-                        presenters
-                      </p>
+                      
                     </div>
                     <div className="col-4 text-secondary">
                       <Button
@@ -114,7 +115,7 @@ function PresentationInfo(props) {
                     </div>
                     <div className="col-3">
                       {user.cv ? (
-                        <img src={CompletedImage} height="50px"></img>
+                        <img src={CompletedImage} height="50px" alt="completed"></img>
                       ) : (
                         ""
                       )}
@@ -148,8 +149,8 @@ function PresentationInfo(props) {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Speaker Notes</h6>
                       <p>
-                        *Technician Workshop speaker notes due 8/1/2021.
-                        Resident Review Workshop speaker notes due 10/1/2021. No other presenters are required to upload speaker notes.
+                        *Technician Workshop speaker notes due 8/1/2022.
+                        Resident Review Workshop speaker notes due 10/1/2022. No other presenters are required to upload speaker notes.
                       </p>
                     </div>
                     <div className="col-4 text-secondary">
@@ -185,7 +186,7 @@ function PresentationInfo(props) {
                   </div>
                   <hr></hr>
                   <div className="row">
-                    <h6 className="col-sm-3">Presentation Title</h6>
+                    <h6 className="col-sm-3">Presentation Title - First Presentation</h6>
                     <div className="col-sm-9">
                       <Input
                         id="presentation_synopsis_title"
@@ -200,9 +201,9 @@ function PresentationInfo(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Presentation Synopsis</h6>
+                      <h6 className="mb-0">Presentation Synopsis - First Presentation</h6>
                       <p>
-                        250-300 words. This section is not required of oral and
+                        150-250 words. This section is not required of oral and
                         poster abstract presenters.
                       </p>
                     </div>
@@ -215,35 +216,34 @@ function PresentationInfo(props) {
                     </div>
                   </div>
                   <hr></hr>
-                  <p className="mb-0">
-                    Refer to your contract to determine if conference
-                    registration is complimentary.
-                  </p>
-                  <br></br>
+                  <div className="row">
+                    <h6 className="col-sm-3">Presentation Title - Second Presentation</h6>
+                    <div className="col-sm-9">
+                      <Input
+                        id="presentation_synopsis_title_second"
+                        type="text"
+                        value={user.presentation_synopsis_title_second || ""}
+                        placeholder="Add Presentation Title"
+                        onChange={handleFieldChange}
+                      ></Input>
+                      <br></br>
+                    </div>
+                  </div>
+                  <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <p>Do you plan to register for the conference?</p>
+                      <h6 className="mb-0">Presentation Synopsis - Second Presentation</h6>
+                      <p>
+                        150-250 words. This section is not required of oral and
+                        poster abstract presenters.
+                      </p>
                     </div>
-                    <div className="col-sm-9 text-secondary">
-                      <ButtonGroup>
-                        <Button
-                          color="primary"
-                          value="Yes"
-                          onClick={updateAttending}
-                          active={rSelected === "Yes"}
-                        >
-                          Yes
-                        </Button>
-                        <Button
-                          color="primary"
-                          value="No"
-                          onClick={updateAttending}
-                          active={rSelected === "No"}
-                        >
-                          No
-                        </Button>
-                      </ButtonGroup>
-                      <p>Selected: {rSelected}</p>
+                    <div className="col-sm-9 text-secondary quillContainer">
+                      <DefaultEditor
+                        id="presentation_synopsis_second"
+                        value={user.presentation_synopsis_second || ""}
+                        onChange={handleFieldChange}
+                      />
                     </div>
                   </div>
                 </div>
