@@ -4,7 +4,7 @@ import { Container, Button } from "reactstrap";
 import docTemplate from "../../media/VCS Continuing Education Q&A Template.docx";
 import "./continuing_ed.css";
 import DataManager from "../../data_module/DataManager";
-import CompletedImage from "../../media/completed.png"
+import CompletedImage from "../../media/completed.png";
 
 function ContinuingEducation(props) {
   const [user, setUser] = useState({});
@@ -17,7 +17,7 @@ function ContinuingEducation(props) {
   };
 
   useEffect(() => {
-    getLoggedInUser()
+    getLoggedInUser();
     const user_id = sessionStorage.getItem(`logged_in_user`);
     props.setHasUser(user_id);
   }, []);
@@ -89,15 +89,6 @@ function ContinuingEducation(props) {
           }}
         >
           Previous
-        </Button>
-        <Button
-          color="primary"
-          className="navButton"
-          onClick={() => {
-            window.location.href = "/user_travel_info";
-          }}
-        >
-          Next
         </Button>
       </Container>
     </>

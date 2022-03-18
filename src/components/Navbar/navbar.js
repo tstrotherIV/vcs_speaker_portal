@@ -64,9 +64,6 @@ const TopNav = (props) => {
                 <NavItem>
                   <NavLink href="/continuing_education">CE Information</NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink href="/user_travel_info">Lodging</NavLink>
-                </NavItem>
 
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
