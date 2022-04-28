@@ -35,7 +35,7 @@ function ContinuingEducation(props) {
                 choice questions with answers. Download the template found here
                 and follow the directions on the template closely before
                 uploading to the speaker portal. Your CE document is due no
-                later than August 1st.
+                later than September 1st.
               </h6>
               <br></br>
               <div className="card mb-3">
