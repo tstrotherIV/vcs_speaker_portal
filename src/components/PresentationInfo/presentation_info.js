@@ -217,7 +217,7 @@ function PresentationInfo(props) {
                   </div>
                   <hr></hr>
                   <div className="row">
-                    <h6 className="col-sm-3">Presentation Title - Second Presentation</h6>
+                    <h6 className="col-sm-3">Presentation Title – Second presentation (if applicable)</h6>
                     <div className="col-sm-9">
                       <Input
                         id="presentation_synopsis_title_second"
@@ -232,7 +232,7 @@ function PresentationInfo(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Presentation Synopsis - Second Presentation</h6>
+                      <h6 className="mb-0">Presentation Synopsis - Second Presentation (if applicable)</h6>
                       <p>
                         150-250 words. This section is not required of oral and
                         poster abstract presenters.

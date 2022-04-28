@@ -61,14 +61,14 @@ function DeadlinesAndRequirements(props) {
         </h4>
         <ul>
           <li>Keynote Presenters: All sections.</li>
-          <li>Concurrent Specialty Session Presenters: All sections.</li>
+          <li>Specialty Session Presenters: All sections.</li>
           <li>
             Resident Review and Pre-Conference Workshop Presenters: All
             sections.
           </li>
-          <li>Technician Workshop Presenters: All sections except Lodging.</li>
+          <li>Technician Workshop Presenters: All sections.</li>
           <li>
-            15 Minute Oral Abstract Presenters: All sections except Lodging.
+            Oral Abstract Presenters: All sections except Lodging.
           </li>
           <li>
             Poster Abstract Presenters: Only complete Speaker Details and
@@ -89,34 +89,34 @@ function DeadlinesAndRequirements(props) {
           <tbody>
             <tr>
               <th scope="row">
-                <a href="/speaker_details">Speaker Details</a>
+                <p>Speaker Details</p>
               </th>
               <td>05/01/2022</td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="/presentation_details">Presentation Details</a>
+                <p>Presentation Details</p>
               </th>
               <td>05/01/2022</td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="/continuing_education">CE Information</a>
+                <p>CE Information</p>
               </th>
               <td>08/01/2022</td>
             </tr>
             <tr>
               <th scope="row">
-                <a href="/presentation_details">Technician Speaker Notes</a>
+                <p>Technician Speaker Notes</p>
               </th>
               <td>08/01/2022</td>
             </tr>
             
             <tr>
               <th scope="row">
-                <a href="/presentation_details">
+                <p>
                   Resident Review Speaker Notes
-                </a>
+                </p>
               </th>
               <td>10/01/2022</td>
             </tr>

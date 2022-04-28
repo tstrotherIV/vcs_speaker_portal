@@ -143,34 +143,17 @@ function UserDetailView(props) {
             </td>
           </tr>
           <tr>
-            <td>Attending the Conference?</td>
-            <td>{user.attending_conference}</td>
+            <td>Second Presentation Title (if applicable)</td>
+            <td>{user.presentation_synopsis_title_second}</td>
           </tr>
           <tr>
-            <td>Arrival Date</td>
+            <td>Second Presentation Synopsis (if applicable)</td>
             <td>
-              <Input
-                className="textAreaWidth"
-                type="date"
-                value={user.arrival_date}
-                disabled
+              <DefaultEditor
+                id="presentation_synopsis"
+                value={user.presentation_synopsis_second || ""}
               />
             </td>
-          </tr>
-          <tr>
-            <td>Departure Date</td>
-            <td>
-              <Input
-                className="textAreaWidth"
-                type="date"
-                value={user.departure_date}
-                disabled
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Room Type Requested</td>
-            <td>{user.hotel_room_type}</td>
           </tr>
           <tr>
             <td></td>
