@@ -109,15 +109,15 @@ function UserDetailView(props) {
             <td>{user.alternate_email}</td>
           </tr>
           <tr>
-            <td>Emgergency Contact Name</td>
+            <td>Emergency Contact Name</td>
             <td>{user.emergency_contact_name}</td>
           </tr>
           <tr>
-            <td>Emgergency Contact Number</td>
+            <td>Emergency Contact Number</td>
             <td>{user.emergency_contact_number}</td>
           </tr>
           <tr>
-            <td>Emgergency Contact Number</td>
+            <td>Emergency Contact Number</td>
             <td>{user.emergency_contact_number}</td>
           </tr>
           <tr>
