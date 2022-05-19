@@ -13,7 +13,7 @@ function UserDetailView(props) {
 
   const getData = () => {
     const user_id = sessionStorage.getItem(`logged_in_user`);
-    if (user_id === "66d2df3d-76fa-4b9b-957e-76549d81f9d9") {
+    if (user_id === "66d2df3d-76fa-4b9b-957e-76549d81f9d9" || "a65581cf-78f3-4b1a-854f-522689492720") {
       setItemVisible(true);
     }
     DataManager.getUser(props.userId).then((data) => {
