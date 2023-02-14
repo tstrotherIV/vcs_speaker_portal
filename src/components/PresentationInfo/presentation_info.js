@@ -15,7 +15,7 @@ function PresentationInfo(props) {
     presentation_synopsis_title: "",
     presentation_synopsis: "",
     presentation_synopsis_title_second: "",
-    presentation_synopsis_second: ""
+    presentation_synopsis_second: "",
   });
 
   const users_id = sessionStorage.getItem(`logged_in_user`);
@@ -43,7 +43,8 @@ function PresentationInfo(props) {
       presentation_synopsis: user.presentation_synopsis,
       presentation_synopsis_title: user.presentation_synopsis_title,
       presentation_synopsis_second: user.presentation_synopsis_second,
-      presentation_synopsis_title_second: user.presentation_synopsis_title_second,
+      presentation_synopsis_title_second:
+        user.presentation_synopsis_title_second,
       attending_conference: rSelected,
     };
     DataManager.updateUser(users_id, edited_user).then(() => {});
@@ -92,7 +93,11 @@ function PresentationInfo(props) {
                     </div>
                     <div className="col-3">
                       {user.signed_contract ? (
-                        <img src={CompletedImage} height="50px" alt="completed"></img>
+                        <img
+                          src={CompletedImage}
+                          height="50px"
+                          alt="completed"
+                        ></img>
                       ) : (
                         ""
                       )}
@@ -102,7 +107,6 @@ function PresentationInfo(props) {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Professional CV</h6>
-                      
                     </div>
                     <div className="col-4 text-secondary">
                       <Button
@@ -115,7 +119,11 @@ function PresentationInfo(props) {
                     </div>
                     <div className="col-3">
                       {user.cv ? (
-                        <img src={CompletedImage} height="50px" alt="completed"></img>
+                        <img
+                          src={CompletedImage}
+                          height="50px"
+                          alt="completed"
+                        ></img>
                       ) : (
                         ""
                       )}
@@ -148,10 +156,6 @@ function PresentationInfo(props) {
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Speaker Notes</h6>
-                      <p>
-                        *Technician Workshop speaker notes due 8/1/2022.
-                        Resident Review Workshop speaker notes due 10/1/2022. No other presenters are required to upload speaker notes.
-                      </p>
                     </div>
                     <div className="col-4 text-secondary">
                       <Button
@@ -186,7 +190,9 @@ function PresentationInfo(props) {
                   </div>
                   <hr></hr>
                   <div className="row">
-                    <h6 className="col-sm-3">Presentation Title - First Presentation</h6>
+                    <h6 className="col-sm-3">
+                      Presentation Title - First Presentation
+                    </h6>
                     <div className="col-sm-9">
                       <Input
                         id="presentation_synopsis_title"
@@ -201,7 +207,9 @@ function PresentationInfo(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Presentation Synopsis - First Presentation</h6>
+                      <h6 className="mb-0">
+                        Presentation Synopsis - First Presentation
+                      </h6>
                       <p>
                         150-250 words. This section is not required of oral and
                         poster abstract presenters.
@@ -217,7 +225,9 @@ function PresentationInfo(props) {
                   </div>
                   <hr></hr>
                   <div className="row">
-                    <h6 className="col-sm-3">Presentation Title – Second presentation (if applicable)</h6>
+                    <h6 className="col-sm-3">
+                      Presentation Title – Second presentation (if applicable)
+                    </h6>
                     <div className="col-sm-9">
                       <Input
                         id="presentation_synopsis_title_second"
@@ -232,7 +242,10 @@ function PresentationInfo(props) {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Presentation Synopsis - Second Presentation (if applicable)</h6>
+                      <h6 className="mb-0">
+                        Presentation Synopsis - Second Presentation (if
+                        applicable)
+                      </h6>
                       <p>
                         150-250 words. This section is not required of oral and
                         poster abstract presenters.

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "reactstrap";
+import { Jumbotron } from "reactstrap";
 import DataManager from "../../data_module/DataManager";
 
 function UserIdentHeader(props) {
@@ -21,7 +21,7 @@ function UserIdentHeader(props) {
 
   return (
     <>
-      <h3>
+      <h3 className="display-5">
         Hello, {user.first_name} {user.last_name}
       </h3>
     </>
