@@ -1,6 +1,9 @@
 {
   "name": "speaker_portal",
   "version": "0.1.0",
+  "engines": {
+    "node": "15.4.0"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
