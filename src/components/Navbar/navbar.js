@@ -72,7 +72,7 @@ const TopNav = (props) => {
                   <DropdownMenu right>
                     <DropdownItem>
                       <p>Sandi Strother</p>
-                      <p>Email: vetcancersociety@yahoo.com</p>
+                      <p>Email: info@vetcancersociety.org</p>
                       <p>Phone: 573.823.8497</p>
                       <p>Address P.O. Box 30855 Columbia, MO 65205</p>
                     </DropdownItem>
