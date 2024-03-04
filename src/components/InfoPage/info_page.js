@@ -47,8 +47,8 @@ function DeadlinesAndRequirements(props) {
             {/* <hr className="my-2" /> */}
             <p className="lead">
               Contact{" "}
-              <a href="mailto:vetcancersociety@yahoo.com">
-                vetcancersociety@yahoo.com
+              <a href="mailto:info@vetcancersociety.org">
+                info@vetcancersociety.org
               </a>{" "}
               with any questions that you may have.
             </p>
@@ -70,32 +70,32 @@ function DeadlinesAndRequirements(props) {
               <th scope="row">
                 <p>Speaker Details</p>
               </th>
-              <td>05/01/2023</td>
+              <td>04/01/2024</td>
             </tr>
             <tr>
               <th scope="row">
                 <p>Presentation Details</p>
               </th>
-              <td>05/01/2023</td>
+              <td>04/01/2024</td>
             </tr>
             <tr>
               <th scope="row">
                 <p>CE Information</p>
               </th>
-              <td>08/01/2023</td>
+              <td>07/15/2024</td>
             </tr>
             <tr>
               <th scope="row">
                 <p>Technician Speaker Notes</p>
               </th>
-              <td>08/01/2023</td>
+              <td>07/15/2024</td>
             </tr>
 
             <tr>
               <th scope="row">
                 <p>Resident Review Speaker Notes</p>
               </th>
-              <td>10/01/2023</td>
+              <td>10/01/2024</td>
             </tr>
           </tbody>
         </Table>
